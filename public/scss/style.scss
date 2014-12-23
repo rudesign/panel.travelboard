@@ -15,6 +15,18 @@ body{
   font-weight: 300;
 }
 
+img{
+  display: block;
+}
+
+a{
+  text-decoration: underline;
+  outline: none;
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 .b, b, strong{
   font-weight: 500;
 }
@@ -24,22 +36,29 @@ body{
   background-color: $green;
   > .inline{
     display: inline-block;
+    float: left;
+    height: $height;
     &.logo{
       width: $asideWidth;
-      height: $height;
-      background-color: darken($grayBlue, 4%);
+      background-color: $darkGrayBlue;
     }
+    &.notifications,
     &.user-controls{
-      @extend .b;
-      float: right;
-      ul{
-        display: table;
-        li{
-          display: table-cell;
-          height: $height;
-          vertical-align: middle;
+      a{
+        @extend .smallUppercase;
+        display: table-cell;
+        height: $height;
+        padding: 0 15px;
+        vertical-align: middle;
+        text-decoration: none;
+        color: #fff;
+        &:hover{
+          background-color: $darkGreen;
         }
       }
+    }
+    &.user-controls{
+      float: right;
     }
   }
 }

@@ -10,15 +10,15 @@
 </head>
 <body>
 <div class="root">
-	<div class="header">
+	<div class="header clearfix">
 		<div class="inline logo">
-			logo
+			<?= $this->tag->image('img/logo.png'); ?>
 		</div><div class="inline user-controls">
-			<ul>
-				<li><a href="">Sign up</a></li>
-			</ul>
+			<a href="" class="fa fa-cog"></a>
 		</div><div class="inline notifications">
-			notifications
+			<a href="" class="fa fa-bell-o"></a>
+			<a href="">Sign up</a>
+			<a href="">Login</a>
 		</div>
 	</div>
 	<div class="content">
