@@ -12,41 +12,21 @@
 <div class="root">
 	<div class="header clearfix">
 		<div class="inline logo">
-			<?= $this->tag->image('img/logo.png'); ?>
+			<?= $this->tag->linkTo('', $this->tag->image('img/logo.png')); ?>
 		</div><div class="inline user-controls">
-			<a href="" class="fa fa-cog"></a>
+			<?= $this->tag->linkTo(array('', '', 'class'=>'fa fa-cog')) ?>
 		</div><div class="inline notifications">
-			<a href="" class="fa fa-bell-o"></a>
-			<a href="">Sign up</a>
-			<a href="">Login</a>
+			<?= $this->tag->linkTo(array('', '', 'class'=>'fa fa-bell-o')) ?>
+			<?= $this->tag->linkTo('signup', 'Sign up') ?>
+			<?= $this->tag->linkTo('login', 'Login') ?>
 		</div>
 	</div>
 	<div class="content">
 		<div class="aside">
-			<ul class="nav">
-				<li>
-					<i></i>
-					<a href="">Point 1</a>
-					<ul>
-						<li><a href="" class="active">Subpoint</a></li>
-						<li><a href="">Subpoint</a></li>
-					</ul>
-				</li>
-				<li>
-					<a href="">Point 2</a>
-				</li>
-				<li>
-					<i></i>
-					<a href="">Point 3</a>
-					<ul>
-						<li><a href="">Subpoint</a></li>
-						<li><a href="">Subpoint</a></li>
-					</ul>
-				</li>
-			</ul>
+			<?= $this->partial('nav') ?>
 		</div>
 		<div class="wrapper">
-			content wrapper
+			<?= $this->getContent() ?>
 		</div>
 	</div>
 

@@ -1,6 +1,7 @@
 @import "reset";
 @import "clearfix";
 @import "vars";
+@import "forms";
 
 .smallUppercase{
   font-size: 13px;
@@ -27,8 +28,17 @@ a{
   }
 }
 
-.b, b, strong{
+.bold, b, strong{
   font-weight: 500;
+}
+
+h1{
+  margin-bottom: 30px;
+  font: {
+    size: 32px;
+    weight: 300;
+  }
+  line-height: 1.2em;
 }
 
 .header{
@@ -73,7 +83,6 @@ a{
     }
     .nav{
       @extend .smallUppercase;
-      //@extend .b;
       a{
         display: block;
         padding: 12px 50px 12px 20px;
@@ -115,6 +124,7 @@ a{
   }
   .wrapper{
     margin-left: $asideWidth;
+    padding: 30px;
     background-color: $lightGray;
     color: $black;
   }

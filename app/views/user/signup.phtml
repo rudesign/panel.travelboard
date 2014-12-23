@@ -1,0 +1,58 @@
+<div class="content">
+    <div class="p-wrapper-1 t content-wrapper">
+        <div class="p-wrapper-1-reverse r l clearfix">
+
+            <h1>Регистрация</h1>
+            <div class="forms login">
+                <div class="form p-wrapper-2 b">
+                    <?= $this->tag->form(array("sinup/do", "method" => "post")) ?>
+                        <?= $this->tag->hiddenField(array("_code", 'value'=>'ba4f43')) ?>
+                        <div class="row">
+                            <div class="title">Ваше имя</div>
+                            <div class="input">
+                                <?= $this->tag->textField(array("name", 'class'=>'w100')) ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="title">E-mail</div>
+                            <div class="input">
+                                <?= $this->tag->emailField(array("email", 'class'=>'w100')) ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="title">Пароль</div>
+                            <div class="input">
+                                <?= $this->tag->passwordField(array("password", 'class'=>'w100', 'autocomplete'=>'off')) ?>
+                            </div>
+                        </div>
+                        <div class="password-repeat row">
+                            <div class="title">Повторите пароль</div>
+                            <div class="input">
+                                <?= $this->tag->passwordField(array("_password", 'class'=>'w100', 'autocomplete'=>'off')) ?>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="title">Повторите символы</div>
+                            <div class="input clearfix">
+                                <div class="left">
+                                    <img src="/files/captcha.jpg" />
+                                </div>
+                                <div class="left w33">
+                                    <?= $this->tag->textField(array("_entered", 'class'=>'w100', 'maxlength'=>4, 'autocomplete'=>'off')) ?>
+                                </div>
+
+                            </div>
+                        </div>
+                        <?= $this->tag->submitButton(array('Зарегистрироваться', 'onclick'=>'return signup();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
+                    <?= $this->tag->endForm() ?>
+                </div>
+                <div class="info p-wrapper-2 b">
+                    <p>Зарегистрированные и авторизованные пользователи получают персональную страницу, а также возможность размещать объявления, обмениваться личными сообщениями и оставлять персонализированные комментарии.</p>
+                    <p>&nbsp;</p>
+                    <p><?= $this->tag->linkTo('/login', 'Войти, если уже регистрировались') ?></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
