@@ -1,0 +1,102 @@
+@import "reset";
+@import "clearfix";
+@import "vars";
+
+.smallUppercase{
+  font-size: 13px;
+  line-height: 1.3em;
+  text-transform: uppercase;
+}
+
+body{
+  background: $grayBlue;
+  color: #fff;
+  font: 14px/1.3em "Roboto", Arial, sans-serif;
+  font-weight: 300;
+}
+
+.b, b, strong{
+  font-weight: 500;
+}
+
+.header{
+  $height: 50px;
+  background-color: $green;
+  > .inline{
+    display: inline-block;
+    &.logo{
+      width: $asideWidth;
+      height: $height;
+      background-color: darken($grayBlue, 4%);
+    }
+    &.user-controls{
+      @extend .b;
+      float: right;
+      ul{
+        display: table;
+        li{
+          display: table-cell;
+          height: $height;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+}
+
+.content{
+  .aside{
+    position: absolute;
+    width: $asideWidth;
+    a{
+      color:#fff;
+      transition: 0.2s;
+    }
+    .nav{
+      @extend .smallUppercase;
+      //@extend .b;
+      a{
+        display: block;
+        padding: 12px 50px 12px 20px;
+        text-decoration: none;
+        border-bottom: 1px solid lighten($grayBlue, 3%);
+        &.active,
+        &:hover{
+          background-color: $green;
+          border-color: $green;
+        }
+      }
+      > li{
+      position: relative;
+      > i{
+        position: absolute;
+        right: 0;
+        width: 40px;
+        height: 42px;
+        background: url("../img/darr.png") 50% 50% no-repeat;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover{
+          background-color: $green;
+        }
+      }
+       &.active{
+         > i{
+           background-image: url("../img/uarr.png");
+         }
+         ul{
+           display: block;
+         }
+       }
+      }
+      ul{
+      display: none;
+      }
+    }
+  }
+  .wrapper{
+    margin-left: $asideWidth;
+    background-color: $lightGray;
+    color: $black;
+  }
+}

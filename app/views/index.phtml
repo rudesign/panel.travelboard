@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<?= $this->tag->getTitle() ?>
+	<?= $this->tag->tagHtml('meta', array('name'=>'description', 'content'=>(!empty($metaTags['description']) ? $metaTags['description'] : '')), true, false, true) ?>
+	<?= $this->tag->tagHtml('meta', array('name'=>'keywords', 'content'=>(!empty($metaTags['keywords']) ? $metaTags['keywords'] : '')), true, false, true) ?>
+	<?= $this->tag->tagHtml('meta', array('name'=>'viewport', 'content'=>'width=device-width, initial-scale=1.0'), true, false, true) ?>
+	<?= $this->assets->outputCss('cssBefore') ?>
+	<?= $this->assets->outputJs('jsBefore') ?>
+</head>
+<body>
+<div class="root">
+	<div class="header">
+		<div class="inline logo">
+			logo
+		</div><div class="inline user-controls">
+			<ul>
+				<li><a href="">Sign up</a></li>
+			</ul>
+		</div><div class="inline notifications">
+			notifications
+		</div>
+	</div>
+	<div class="content">
+		<div class="aside">
+			<ul class="nav">
+				<li>
+					<i></i>
+					<a href="">Point 1</a>
+					<ul>
+						<li><a href="" class="active">Subpoint</a></li>
+						<li><a href="">Subpoint</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="">Point 2</a>
+				</li>
+				<li>
+					<i></i>
+					<a href="">Point 3</a>
+					<ul>
+						<li><a href="">Subpoint</a></li>
+						<li><a href="">Subpoint</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="wrapper">
+			content wrapper
+		</div>
+	</div>
+
+</div>
+<?= $this->assets->outputCss('cssAfter') ?>
+<?= $this->assets->outputJs('jsAfter') ?>
+</body>
+</html>
