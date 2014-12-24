@@ -75,9 +75,9 @@ function initNotification(){
 }
 
 
-function signup()
-{
-    var container = $('.forms.login');
+function signup() {
+
+    var container = $('.login.form');
     var form = container.find('form');
 
     var options = {
@@ -99,9 +99,9 @@ function signup()
     return false;
 }
 
-function login()
-{
-    var container = $('.forms.login');
+function login() {
+
+    var container = $('.login.form');
     var form = container.find('form');
 
     var options = {

@@ -1,0 +1,30 @@
+@mixin columnWidth ($columns, $margin){
+
+  $columnsTotal: 5;
+
+  $marginTotal: $margin * ($columnsTotal - $columns);
+
+  width: ((100%/$columnsTotal)*$columns) - ($marginTotal/$columnsTotal);
+  margin-right: $margin;
+  &:last-child{
+    margin-right: 0;
+  }
+}
+
+.common-grid{
+  $margin: 2%;
+
+  .row{
+    @extend .clearfix;
+    .c15, .c25, .c35, .c45, .c55
+    {
+      display: inline-block;
+      float: left;
+    }
+    .c15{ @include columnWidth(1, $margin); }
+    .c25{ @include columnWidth(2, $margin); }
+    .c35{ @include columnWidth(3, $margin); }
+    .c45{ @include columnWidth(4, $margin); }
+    .c55{ @include columnWidth(5, $margin); }
+  }
+}

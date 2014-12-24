@@ -1,6 +1,6 @@
 <h1>Авторизация</h1>
 <div class="forms">
-    <div class="login form">
+    <div class="login form clearfix">
         <?= $this->tag->form(array("login/do", "method" => "post")) ?>
             <div class="row">
                 <div class="title">E-mail</div>
@@ -16,11 +16,13 @@
             </div>
             <?= $this->tag->submitButton(array('Войти', 'onclick'=>'return login();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
         <?= $this->tag->endForm() ?>
-    </div>
-    <div class="info">
-        <p>Авторизованные пользователи получают персональную страницу, а также возможность размещать объявления, обмениваться личными сообщениями и оставлять персонализированные комментарии.</p>
-        <p>&nbsp;</p>
-        <p><?= $this->tag->linkTo('forget', 'Запросить новый пароль') ?></p>
-        <p><?= $this->tag->linkTo('signup', 'Зарегистрироваться, если впервые на сайте') ?></p>
+
+        <div class="info">
+            <ul class="controls">
+                <li><?= $this->tag->linkTo('forget', 'Запросить новый пароль') ?></li>
+                <li><?= $this->tag->linkTo('signup', 'Зарегистрироваться, если впервые на сайте') ?></li>
+            </ul>
+
+        </div>
     </div>
 </div>

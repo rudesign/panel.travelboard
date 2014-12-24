@@ -1,5 +1,7 @@
 <?php
 
+use Phalcon\Exception;
+
 class AsyncRequest extends BaseController
 {
     public $data = array();
@@ -13,7 +15,7 @@ class AsyncRequest extends BaseController
                 $this->data = $data;
             }
             return true;
-        }catch (\Exception $e){
+        }catch (Exception $e){
             return false;
         }
     }

@@ -2,7 +2,12 @@
 @import "clearfix";
 @import "vars";
 @import "forms";
+@import "grid";
 
+.small{
+  font-size: 12px;
+  line-height: 1.3em;
+}
 .smallUppercase{
   font-size: 13px;
   line-height: 1.3em;
@@ -21,6 +26,7 @@ img{
 }
 
 a{
+  color: $blue;
   text-decoration: underline;
   outline: none;
   &:hover{
@@ -30,6 +36,10 @@ a{
 
 .bold, b, strong{
   font-weight: 500;
+}
+
+.w100{
+  width: 100%;
 }
 
 h1{
@@ -124,7 +134,7 @@ h1{
   }
   .wrapper{
     margin-left: $asideWidth;
-    padding: 30px;
+    padding: 30px 40px;
     background-color: $lightGray;
     color: $black;
   }

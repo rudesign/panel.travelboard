@@ -3,10 +3,11 @@
 $asideWidth: 250px;
 
 $black: #333;
-$gray: #ccc;
 $grayBlue: #303641;
 $darkGrayBlue: darken($grayBlue, 4%);
-$lightGray: #f2f4f8;
+$lightGray: #f5f5f5;
+$gray: darken($lightGray, 5%);
 $green: #23bab5;
 $darkGreen: darken($green, 10%);
 $orange: #ff9900;
+$blue: #0857a6;

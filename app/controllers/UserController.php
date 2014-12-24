@@ -1,5 +1,7 @@
 <?php
 
+use Phalcon\Exception;
+
 class UserController extends ViewsController
 {
     public function initialize(){
@@ -59,7 +61,7 @@ class UserController extends ViewsController
                     // Move to the index page
                     $async->setLocation();
 
-                }catch (\Exception $e){
+                }catch (Exception $e){
                     // Alert message
                     $async->setMessage($e->getMessage());
                 }

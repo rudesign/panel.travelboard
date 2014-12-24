@@ -10,10 +10,14 @@ input[type="email"],
 input[type="password"],
 input[type="textarea"],
 textarea{
-  font-size: 16px;
+  font: {
+    family: "Roboto", "Arial", sans-serif;
+    size: 16px;
+    weight: 300;
+  }
   padding: 5px 10px 6px;
   border: 1px solid $gray;
-  border-top-width: 2px;
+  border-top-width: 3px;
 }
 
 input[type="radio"],
@@ -86,30 +90,23 @@ label{
   .hidden{
     display: none;
   }
-  &.login{
-    .form{
-      width: 25%;
-      float: left;
-      margin-right: 7%;
-      @media screen and (max-width: 800px){
-        width: 35%;
+  .form{
+    &.login{
+      form {
+        width: 25%;
+        float: left;
+        margin-right: 40px;
       }
-      @media screen and (max-width: 480px){
-        float: none;
-        width: 100%;
-        margin-right: 0;
-      }
-    }
-    .info {
-      width: 50%;
-      float: left;
-      padding-top: 15px;
-      @media screen and (max-width: 800px) {
-        width: 57%;
-      }
-      @media screen and (max-width: 480px) {
-        width: 100%;
-        padding-top: 0;
+      .info {
+        width: 50%;
+        float: left;
+        padding-top: 15px;
+        .controls li{
+          margin-bottom: 5px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
