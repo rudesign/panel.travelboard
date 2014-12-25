@@ -1,12 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:300,500&subset=latin,cyrillic);
 
 $asideWidth: 250px;
+$asideWidthMinified: 180px;
 
 $black: #333;
 $grayBlue: #303641;
 $darkGrayBlue: darken($grayBlue, 4%);
 $lightGray: #f5f5f5;
-$gray: darken($lightGray, 5%);
+$gray: darken($lightGray, 7%);
 $green: #23bab5;
 $darkGreen: darken($green, 10%);
 $orange: #ff9900;

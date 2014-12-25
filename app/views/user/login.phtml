@@ -1,28 +1,29 @@
 <h1>Авторизация</h1>
-<div class="forms">
-    <div class="login form clearfix">
-        <?= $this->tag->form(array("login/do", "method" => "post")) ?>
-            <div class="row">
-                <div class="title">E-mail</div>
-                <div class="input">
-                    <?= $this->tag->emailField(array("email", 'class'=>'w100')) ?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="title">Пароль</div>
-                <div class="input">
-                    <?= $this->tag->passwordField(array("password", 'class'=>'w100')) ?>
-                </div>
-            </div>
-            <?= $this->tag->submitButton(array('Войти', 'onclick'=>'return login();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
-        <?= $this->tag->endForm() ?>
 
-        <div class="info">
+<div class="common-grid login form">
+    <div class="row x3">
+        <div class="c1">
+            <?= $this->tag->form(array("login/do", "method" => "post")) ?>
+                <div class="form-row">
+                    <div class="form-title">E-mail</div>
+                    <div class="input">
+                        <?= $this->tag->emailField(array("email", 'class'=>'w100')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Пароль</div>
+                    <div class="input">
+                        <?= $this->tag->passwordField(array("password", 'class'=>'w100')) ?>
+                    </div>
+                </div>
+                <?= $this->tag->submitButton(array('Войти', 'onclick'=>'return login();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
+            <?= $this->tag->endForm() ?>
+        </div>
+        <div class="c1">
             <ul class="controls">
                 <li><?= $this->tag->linkTo('forget', 'Запросить новый пароль') ?></li>
-                <li><?= $this->tag->linkTo('signup', 'Зарегистрироваться, если впервые на сайте') ?></li>
+                <li><?= $this->tag->linkTo('signup', 'Зарегистрироваться') ?></li>
             </ul>
-
         </div>
     </div>
 </div>

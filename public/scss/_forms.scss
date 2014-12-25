@@ -17,7 +17,6 @@ textarea{
   }
   padding: 5px 10px 6px;
   border: 1px solid $gray;
-  border-top-width: 3px;
 }
 
 input[type="radio"],
@@ -77,35 +76,23 @@ label{
   }
 }
 
-.forms{
-  .row{
+.form{
+  .form-row{
     margin-bottom: 15px;
   }
-  .title{
+  .form-title{
     margin-bottom: 4px;
     font-size: 12px;
     font-weight: 500;
     line-height: 1.3em;
   }
-  .hidden{
-    display: none;
-  }
-  .form{
-    &.login{
-      form {
-        width: 25%;
-        float: left;
-        margin-right: 40px;
-      }
-      .info {
-        width: 50%;
-        float: left;
-        padding-top: 15px;
-        .controls li{
-          margin-bottom: 5px;
-          &:last-child{
-            margin-bottom: 0;
-          }
+  &.login{
+    .controls{
+      padding-top: 15px;
+      li{
+        margin-bottom: 5px;
+        &:last-child{
+          margin-bottom: 0;
         }
       }
     }

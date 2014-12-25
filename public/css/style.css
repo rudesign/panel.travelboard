@@ -64,8 +64,7 @@ textarea {
   font-size: 16px;
   font-weight: 300;
   padding: 5px 10px 6px;
-  border: 1px solid #e8e8e8;
-  border-top-width: 3px; }
+  border: 1px solid #e3e3e3; }
 
 input[type="radio"],
 input[type="checkbox"] {
@@ -104,427 +103,419 @@ label {
       background-color: #f09000;
       border-bottom-color: #cc7a00; }
   .buttons.gray {
-    background-color: #cfcfcf;
-    border-bottom: 1px solid #b5b5b5; }
+    background-color: #cacaca;
+    border-bottom: 1px solid #b0b0b0; }
     .buttons.gray:hover {
-      background-color: gainsboro;
-      border-bottom-color: #c2c2c2; }
+      background-color: #d6d6d6;
+      border-bottom-color: #bdbdbd; }
   .buttons i {
     color: #fff; }
 
-.forms .row {
+.form .form-row {
   margin-bottom: 15px; }
-.forms .title {
+.form .form-title {
   margin-bottom: 4px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.3em; }
-.forms .hidden {
-  display: none; }
-.forms .form.login form {
-  width: 25%;
-  float: left;
-  margin-right: 40px; }
-.forms .form.login .info {
-  width: 50%;
-  float: left;
+.form.login .controls {
   padding-top: 15px; }
-  .forms .form.login .info .controls li {
+  .form.login .controls li {
     margin-bottom: 5px; }
-    .forms .form.login .info .controls li:last-child {
+    .form.login .controls li:last-child {
       margin-bottom: 0; }
 
-.common-grid .row .c1 {
+.common-grid .row > .c1 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c1 i {
+  float: left; }
+  .common-grid .row > .c1 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
-.common-grid .row .c2 {
+    margin-bottom: 1px;
+    background-color: #ccc; }
+.common-grid .row > .c2 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c2 i {
+  float: left; }
+  .common-grid .row > .c2 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
-.common-grid .row .c3 {
+    margin-bottom: 1px;
+    background-color: #ccc; }
+.common-grid .row > .c3 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c3 i {
+  float: left; }
+  .common-grid .row > .c3 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
-.common-grid .row .c4 {
+    margin-bottom: 1px;
+    background-color: #ccc; }
+.common-grid .row > .c4 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c4 i {
+  float: left; }
+  .common-grid .row > .c4 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
-.common-grid .row .c5 {
+    margin-bottom: 1px;
+    background-color: #ccc; }
+.common-grid .row > .c5 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c5 i {
+  float: left; }
+  .common-grid .row > .c5 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
-.common-grid .row .c6 {
+    margin-bottom: 1px;
+    background-color: #ccc; }
+.common-grid .row > .c6 {
   display: inline-block;
-  float: left;
-  margin-bottom: 2%; }
-  .common-grid .row .c6 i {
+  float: left; }
+  .common-grid .row > .c6 i {
     display: block;
     height: 10px;
-    background-color: #fff; }
+    margin-bottom: 1px;
+    background-color: #ccc; }
 .common-grid .row.x2 > .c1 {
-  width: 49%;
-  margin-right: 2%; }
+  width: 48.5%;
+  margin-right: 3%; }
   .common-grid .row.x2 > .c1:last-child, .common-grid .row.x2 > .c1:nth-child(2n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x2 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x2 > .c1:last-child, .common-grid .row.x2 > .c1:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x2 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x2 > .c1:last-child, .common-grid .row.x2 > .c1:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x2 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x2 > .c1:last-child, .common-grid .row.x2 > .c1:nth-child(0n) {
         margin-right: 0; } }
 .common-grid .row.x3 > .c1 {
-  width: 32%;
-  margin-right: 2%; }
+  width: 31.33333%;
+  margin-right: 3%; }
   .common-grid .row.x3 > .c1:last-child, .common-grid .row.x3 > .c1:nth-child(3n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x3 > .c1 {
-      width: 49%;
-      margin-right: 2%; }
+      width: 48.5%;
+      margin-right: 3%; }
       .common-grid .row.x3 > .c1:last-child, .common-grid .row.x3 > .c1:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x3 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x3 > .c1:last-child, .common-grid .row.x3 > .c1:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x3 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x3 > .c1:last-child, .common-grid .row.x3 > .c1:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x3 > .c2 {
-  width: 66%;
-  margin-right: 2%; }
+  width: 65.66667%;
+  margin-right: 3%; }
   .common-grid .row.x3 > .c2:last-child, .common-grid .row.x3 > .c2:nth-child(3n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x3 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x3 > .c2:last-child, .common-grid .row.x3 > .c2:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x3 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x3 > .c2:last-child, .common-grid .row.x3 > .c2:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x3 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x3 > .c2:last-child, .common-grid .row.x3 > .c2:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x4 > .c1 {
-  width: 23.5%;
-  margin-right: 2%; }
+  width: 22.75%;
+  margin-right: 3%; }
   .common-grid .row.x4 > .c1:last-child, .common-grid .row.x4 > .c1:nth-child(4n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x4 > .c1 {
-      width: 49%;
-      margin-right: 2%; }
+      width: 48.5%;
+      margin-right: 3%; }
       .common-grid .row.x4 > .c1:last-child, .common-grid .row.x4 > .c1:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x4 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c1:last-child, .common-grid .row.x4 > .c1:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x4 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c1:last-child, .common-grid .row.x4 > .c1:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x4 > .c2 {
-  width: 49%;
-  margin-right: 2%; }
+  width: 48.5%;
+  margin-right: 3%; }
   .common-grid .row.x4 > .c2:last-child, .common-grid .row.x4 > .c2:nth-child(4n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x4 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c2:last-child, .common-grid .row.x4 > .c2:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x4 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c2:last-child, .common-grid .row.x4 > .c2:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x4 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c2:last-child, .common-grid .row.x4 > .c2:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x4 > .c3 {
-  width: 74.5%;
-  margin-right: 2%; }
+  width: 74.25%;
+  margin-right: 3%; }
   .common-grid .row.x4 > .c3:last-child, .common-grid .row.x4 > .c3:nth-child(4n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x4 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c3:last-child, .common-grid .row.x4 > .c3:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x4 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c3:last-child, .common-grid .row.x4 > .c3:nth-child(1n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x4 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x4 > .c3:last-child, .common-grid .row.x4 > .c3:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x5 > .c1 {
-  width: 18.4%;
-  margin-right: 2%; }
+  width: 17.6%;
+  margin-right: 3%; }
   .common-grid .row.x5 > .c1:last-child, .common-grid .row.x5 > .c1:nth-child(5n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x5 > .c1 {
-      width: 32%;
-      margin-right: 2%; }
+      width: 31.33333%;
+      margin-right: 3%; }
       .common-grid .row.x5 > .c1:last-child, .common-grid .row.x5 > .c1:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x5 > .c1 {
-      width: 49%;
-      margin-right: 2%; }
+      width: 48.5%;
+      margin-right: 3%; }
       .common-grid .row.x5 > .c1:last-child, .common-grid .row.x5 > .c1:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x5 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c1:last-child, .common-grid .row.x5 > .c1:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x5 > .c2 {
-  width: 38.8%;
-  margin-right: 2%; }
+  width: 38.2%;
+  margin-right: 3%; }
   .common-grid .row.x5 > .c2:last-child, .common-grid .row.x5 > .c2:nth-child(5n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x5 > .c2 {
-      width: 66%;
-      margin-right: 2%; }
+      width: 65.66667%;
+      margin-right: 3%; }
       .common-grid .row.x5 > .c2:last-child, .common-grid .row.x5 > .c2:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x5 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c2:last-child, .common-grid .row.x5 > .c2:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x5 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c2:last-child, .common-grid .row.x5 > .c2:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x5 > .c3 {
-  width: 59.2%;
-  margin-right: 2%; }
+  width: 58.8%;
+  margin-right: 3%; }
   .common-grid .row.x5 > .c3:last-child, .common-grid .row.x5 > .c3:nth-child(5n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x5 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c3:last-child, .common-grid .row.x5 > .c3:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x5 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c3:last-child, .common-grid .row.x5 > .c3:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x5 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c3:last-child, .common-grid .row.x5 > .c3:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x5 > .c4 {
-  width: 79.6%;
-  margin-right: 2%; }
+  width: 79.4%;
+  margin-right: 3%; }
   .common-grid .row.x5 > .c4:last-child, .common-grid .row.x5 > .c4:nth-child(5n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x5 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c4:last-child, .common-grid .row.x5 > .c4:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x5 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c4:last-child, .common-grid .row.x5 > .c4:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x5 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x5 > .c4:last-child, .common-grid .row.x5 > .c4:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x6 > .c1 {
-  width: 15.0%;
-  margin-right: 2%; }
+  width: 14.16667%;
+  margin-right: 3%; }
   .common-grid .row.x6 > .c1:last-child, .common-grid .row.x6 > .c1:nth-child(6n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x6 > .c1 {
-      width: 32%;
-      margin-right: 2%; }
+      width: 31.33333%;
+      margin-right: 3%; }
       .common-grid .row.x6 > .c1:last-child, .common-grid .row.x6 > .c1:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x6 > .c1 {
-      width: 49%;
-      margin-right: 2%; }
+      width: 48.5%;
+      margin-right: 3%; }
       .common-grid .row.x6 > .c1:last-child, .common-grid .row.x6 > .c1:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x6 > .c1 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c1:last-child, .common-grid .row.x6 > .c1:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x6 > .c2 {
-  width: 32%;
-  margin-right: 2%; }
+  width: 31.33333%;
+  margin-right: 3%; }
   .common-grid .row.x6 > .c2:last-child, .common-grid .row.x6 > .c2:nth-child(6n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x6 > .c2 {
-      width: 66%;
-      margin-right: 2%; }
+      width: 65.66667%;
+      margin-right: 3%; }
       .common-grid .row.x6 > .c2:last-child, .common-grid .row.x6 > .c2:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x6 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c2:last-child, .common-grid .row.x6 > .c2:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x6 > .c2 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c2:last-child, .common-grid .row.x6 > .c2:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x6 > .c3 {
-  width: 49%;
-  margin-right: 2%; }
+  width: 48.5%;
+  margin-right: 3%; }
   .common-grid .row.x6 > .c3:last-child, .common-grid .row.x6 > .c3:nth-child(6n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x6 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c3:last-child, .common-grid .row.x6 > .c3:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x6 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c3:last-child, .common-grid .row.x6 > .c3:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x6 > .c3 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c3:last-child, .common-grid .row.x6 > .c3:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x6 > .c4 {
-  width: 66%;
-  margin-right: 2%; }
+  width: 65.66667%;
+  margin-right: 3%; }
   .common-grid .row.x6 > .c4:last-child, .common-grid .row.x6 > .c4:nth-child(6n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x6 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c4:last-child, .common-grid .row.x6 > .c4:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x6 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c4:last-child, .common-grid .row.x6 > .c4:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x6 > .c4 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c4:last-child, .common-grid .row.x6 > .c4:nth-child(1n) {
         margin-right: 0; } }
 .common-grid .row.x6 > .c5 {
-  width: 83.0%;
-  margin-right: 2%; }
+  width: 82.83333%;
+  margin-right: 3%; }
   .common-grid .row.x6 > .c5:last-child, .common-grid .row.x6 > .c5:nth-child(6n) {
     margin-right: 0; }
   @media screen and (min-width: 801px) and (max-width: 1280px) {
     .common-grid .row.x6 > .c5 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c5:last-child, .common-grid .row.x6 > .c5:nth-child(3n) {
         margin-right: 0; } }
   @media screen and (min-width: 681px) and (max-width: 800px) {
     .common-grid .row.x6 > .c5 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c5:last-child, .common-grid .row.x6 > .c5:nth-child(2n) {
         margin-right: 0; } }
   @media screen and (max-width: 680px) {
     .common-grid .row.x6 > .c5 {
       width: 100%;
-      margin-right: 2%; }
+      margin-right: 3%; }
       .common-grid .row.x6 > .c5:last-child, .common-grid .row.x6 > .c5:nth-child(1n) {
         margin-right: 0; } }
 
@@ -574,6 +565,17 @@ h1 {
     .header > .inline.logo {
       width: 250px;
       background-color: #272c35; }
+      .header > .inline.logo img {
+        max-width: 100%;
+        margin: 0 auto; }
+      @media screen and (min-width: 481px) and (max-width: 1024px) {
+        .header > .inline.logo {
+          width: 180px; }
+          .header > .inline.logo img {
+            margin: 7px auto; } }
+      @media screen and (max-width: 480px) {
+        .header > .inline.logo {
+          width: 100%; } }
     .header > .inline.notifications a, .header > .inline.user-controls a {
       display: table-cell;
       height: 50px;
@@ -585,6 +587,10 @@ h1 {
         background-color: #1b8f8b; }
     .header > .inline.user-controls {
       float: right; }
+    @media screen and (max-width: 480px) {
+      .header > .inline {
+        display: block;
+        float: none; } }
 
 .content .aside {
   position: absolute;
@@ -605,6 +611,7 @@ h1 {
     .content .aside .nav > li > i {
       position: absolute;
       right: 0;
+      z-index: 2;
       width: 40px;
       height: 42px;
       background: url("../img/darr.png") 50% 50% no-repeat;
@@ -618,10 +625,23 @@ h1 {
       display: block; }
   .content .aside .nav ul {
     display: none; }
-.content .wrapper {
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .content .aside {
+      width: 180px; } }
+  @media screen and (max-width: 480px) {
+    .content .aside {
+      position: relative;
+      width: 100%; } }
+.content > .wrapper {
   margin-left: 250px;
   padding: 30px 40px;
   background-color: #f5f5f5;
   color: #333; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .content > .wrapper {
+      margin-left: 180px; } }
+  @media screen and (max-width: 480px) {
+    .content > .wrapper {
+      margin-left: 0; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -61,6 +61,19 @@ h1{
     &.logo{
       width: $asideWidth;
       background-color: $darkGrayBlue;
+      img{
+        max-width: 100%;
+        margin: 0 auto;
+      }
+      @media screen and (min-width: 481px) and (max-width: 1024px) {
+        width: $asideWidthMinified;
+        img{
+          margin: (($height - ($height * $asideWidthMinified) / $asideWidth) / 2) auto;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        width: 100%;
+      }
     }
     &.notifications,
     &.user-controls{
@@ -80,6 +93,10 @@ h1{
     &.user-controls{
       float: right;
     }
+    @media screen and (max-width: 480px) {
+      display: block;
+      float: none;
+    }
   }
 }
 
@@ -92,6 +109,7 @@ h1{
       transition: 0.2s;
     }
     .nav{
+      $height: 42px;
       @extend .smallUppercase;
       a{
         display: block;
@@ -105,37 +123,52 @@ h1{
         }
       }
       > li{
-      position: relative;
-      > i{
-        position: absolute;
-        right: 0;
-        width: 40px;
-        height: 42px;
-        background: url("../img/darr.png") 50% 50% no-repeat;
-        cursor: pointer;
-        transition: 0.2s;
-        &:hover{
-          background-color: $green;
+        position: relative;
+        > i{
+          position: absolute;
+          right: 0;
+          z-index: 2;
+          width: 40px;
+          height: $height;
+          background: url("../img/darr.png") 50% 50% no-repeat;
+          cursor: pointer;
+          transition: 0.2s;
+          &:hover{
+            background-color: $green;
+          }
         }
-      }
-       &.active{
-         > i{
-           background-image: url("../img/uarr.png");
-         }
-         ul{
-           display: block;
-         }
-       }
+        &.active{
+          > i{
+            background-image: url("../img/uarr.png");
+          }
+          ul{
+            display: block;
+          }
+        }
       }
       ul{
       display: none;
       }
     }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      width: $asideWidthMinified;
+    }
+    @media screen and (max-width: 480px) {
+      position: relative;
+      width: 100%;
+    }
   }
-  .wrapper{
+  > .wrapper{
     margin-left: $asideWidth;
     padding: 30px 40px;
     background-color: $lightGray;
     color: $black;
+
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      margin-left: $asideWidthMinified;
+    }
+    @media screen and (max-width: 480px) {
+      margin-left: 0;
+    }
   }
 }
