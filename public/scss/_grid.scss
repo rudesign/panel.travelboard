@@ -1,30 +1,65 @@
-@mixin columnWidth ($columns, $margin){
+// columns in the row
+$inRow: 6;
+// margin between columns
+$margin: 2%;
 
-  $columnsTotal: 5;
+@mixin columnWidth ($columns, $inRow){
 
-  $marginTotal: $margin * ($columnsTotal - $columns);
+  $marginTotal: $margin * ($inRow - $columns);
 
-  width: ((100%/$columnsTotal)*$columns) - ($marginTotal/$columnsTotal);
+  $width: ((100%/$inRow)*$columns) - ($marginTotal/$inRow);
+
+  @if $width > 100%{
+    width: 100%;
+  }
+  @else{
+    width: $width;
+  }
+
   margin-right: $margin;
-  &:last-child{
+
+  &:last-child,
+  &:nth-child(#{0n + $inRow}){
     margin-right: 0;
   }
 }
 
 .common-grid{
-  $margin: 2%;
 
   .row{
     @extend .clearfix;
-    .c15, .c25, .c35, .c45, .c55
-    {
-      display: inline-block;
-      float: left;
+
+    @for $i from 1 to ($inRow + 1){
+      .c#{$i}{
+        display: inline-block;
+        float: left;
+        margin-bottom: 2%;
+        i{
+          display: block;
+          height: 10px;
+          background-color: #fff;
+        }
+      }
     }
-    .c15{ @include columnWidth(1, $margin); }
-    .c25{ @include columnWidth(2, $margin); }
-    .c35{ @include columnWidth(3, $margin); }
-    .c45{ @include columnWidth(4, $margin); }
-    .c55{ @include columnWidth(5, $margin); }
+
+    @for $i from 2 to ($inRow + 1) {
+      &.x#{$i}{
+        @for $k from 1 to $i {
+          > .c#{$k}{
+            @include columnWidth($k, $i);
+
+            @media screen and (min-width: 801px) and (max-width: 1280px) {
+              @include columnWidth($k, round($i/2));
+            }
+            @media screen and (min-width: 681px) and (max-width: 800px) {
+              @include columnWidth($k, round($i/3));
+            }
+            @media screen and (max-width: 680px) {
+              @include columnWidth($k, round($i/6));
+            }
+          }
+        }
+      }
+    }
   }
 }

@@ -37,6 +37,7 @@ class ViewsController extends BaseController
             ->addJs('js/jquery.form.min.js')
             ->addJs('js/jquery.easing.1.3.min.js')
             ->addJs('js/jquery.cookie.js')
+            ->addJs('js/respond.min.js')
             ->addJs('js/common.js');
     }
 
