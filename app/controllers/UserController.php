@@ -1,6 +1,7 @@
 <?php
 
-use Phalcon\Exception;
+use Phalcon\Exception,
+    Phalcon\Security;
 
 class UserController extends ViewsController
 {
@@ -17,6 +18,61 @@ class UserController extends ViewsController
         $this->redirectAuthorised();
 
         $this->setTitle('Регистрация');
+    }
+
+    /**
+     * Check login form & login
+     */
+    public function doSignupAction()
+    {
+        // Increase attempts counter
+        //$this->session->set('attempts', ($this->session->get('attempts')+1));
+
+        // Get async request helper
+        $async = new AsyncRequest();
+
+        if($this->session->get('attempts') < 30){
+
+            // Validate data
+            $validation = new SignupValidation();
+
+            $messages = $validation->validate($_POST);
+
+            if (count($messages)) {
+                // Get first message
+                $messages->rewind();
+
+                $async->setMessage($messages->current()->getMessage());
+            }else{
+                try {
+                    // Get User model
+                    $user = new Users();
+
+                    // Change User model data
+                    $user->setName($this->request->getPost('name'));
+                    $user->setLogin($this->request->getPost('email'));
+                    $user->setPassword($this->security->hash($this->request->getPost('password')));
+
+                    // Store
+                    if(!$user->signup()) throw new Exception('Ошибка при создании пользователя');
+
+                    // Clean login attempts counter
+                    $this->session->remove('attempts');
+
+                    // Move to the index page
+                    $async->setLocation();
+
+                }catch (\Exception $e){
+                    // Alert message
+                    $async->setMessage($e->getMessage());
+                }
+            }
+
+        }else{
+            $async->setLocation();
+        }
+
+        $async->submitJSON();
     }
 
     /**
@@ -50,7 +106,15 @@ class UserController extends ViewsController
             $user->setPassword($this->request->getPost('password'));
 
             // Validate data
-            if ($async->validateModel($user)) {
+            $validation = new LoginValidation();
+
+            $messages = $validation->validate($_POST);
+
+            if (count($messages)) {
+                $messages->rewind();
+
+                $async->setMessage($messages->current()->getMessage());
+            }else{
                 try {
                     // Perform login
                     $user->login();
@@ -61,7 +125,7 @@ class UserController extends ViewsController
                     // Move to the index page
                     $async->setLocation();
 
-                }catch (Exception $e){
+                }catch (\Exception $e){
                     // Alert message
                     $async->setMessage($e->getMessage());
                 }

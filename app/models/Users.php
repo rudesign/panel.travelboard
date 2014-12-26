@@ -1,8 +1,5 @@
 <?php
 
-use Phalcon\Mvc\Model\Validator\PresenceOf,
-    Phalcon\Mvc\Model\Validator\Email;
-
 class Users extends \Phalcon\Mvc\Model
 {
 
@@ -212,35 +209,27 @@ class Users extends \Phalcon\Mvc\Model
         );
     }
 
-    /**
-     * Validate login form
-     * @return bool
-     */
-    public function validation()
+    public function signup()
     {
-        $this->validate(new PresenceOf(
-            array(
-                "field"  => "login",
-                "message" => 'Укажите e-mail',
-            )
-        ));
 
-        $this->validate(new Email(
-            array(
-                "field"  => "login",
-                "message" => 'Укажите реальный e-mail',
-            )
-        ));
+        // Get user by auth data
+        if($user = $this->checkIfLoginExists($this->getLogin())) throw new \Exception('Login exists');
 
-        $this->validate(new PresenceOf(
-            array(
-                "field"  => "password",
-                "message" => 'Укажите пароль'
-            )
-        ));
+        // Generate new session id
+        if(!$sid = $this->makeSid()) throw new \Exception('Empty session id');
 
-        return $this->validationHasFailed() != true;
+        // Change user model data set
+        $this->setSid($sid);
+
+        // Store sid in the session
+        $this->getSession()->set('sid', $sid);
+
+        // Update user
+        if(!$this->save()) throw new \Exception('User creation failed');
+
+        return true;
     }
+
 
     /**
      * Perform login
@@ -251,9 +240,6 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function login($login = '', $password = '')
     {
-        // Remove last session id (sid)
-        $this->getSession()->remove('sid');
-
         // Get user by auth data
         $user = $this->getByAuthData($login, $password);
 
@@ -273,7 +259,20 @@ class Users extends \Phalcon\Mvc\Model
     }
 
     /**
-     * Get user by auth data: login & passord
+     * @param string $login
+     * @return Users
+     * @throws Exception
+     */
+    public function checkIfLoginExists($login = ''){
+        if(empty($login)) throw new \Exception('Не указан login');
+
+        $result = $this->query()->where("login='{$login}'")->limit(1)->execute();
+
+        return ($user = $result->getFirst()) ? $user : null;
+    }
+
+    /**
+     * Get user by auth data: login & password
      * @param string $login
      * @param string $password
      * @return Users
@@ -287,9 +286,7 @@ class Users extends \Phalcon\Mvc\Model
         if(empty($login)) throw new \Exception('Не указан login');
         if(empty($password)) throw new \Exception('Не указан пароль');
 
-        $result = $this->query()->where("login='{$login}'")->limit(1)->execute();
-
-        if(!$user = $result->getFirst()) throw new \Exception('Пользователь не зарегистрирован');
+        if(!$user = $this->checkIfLoginExists($login)) throw new Exception('Пользователь не зарегистрирован');
 
         if(!$this->getDI()->get('security')->checkHash($password, $user->password)) throw new \Exception('Неверный пароль');
 

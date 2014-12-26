@@ -32,7 +32,8 @@ $di->set('session', function () {
     $session = new Session(array(
         'cookie_lifetime' => 86400,
     ));
-    $session->start();
+
+    if(session_status() != PHP_SESSION_ACTIVE) $session->start();
 
     return $session;
 });
@@ -45,7 +46,8 @@ $di->set('db', function () use ($config) {
         'host' => $config->database->host,
         'username' => $config->database->username,
         'password' => $config->database->password,
-        'dbname' => $config->database->dbname
+        'dbname' => $config->database->dbname,
+        'charset' => 'utf8',
     ));
 });
 
@@ -82,6 +84,10 @@ $di->set('view', function () use ($config) {
     $view = new View();
 
     $view->setViewsDir($config->application->viewsDir);
+
+    $view->registerEngines(array(
+        '.phtml' => 'Phalcon\Mvc\View\Engine\Php'
+    ));
 
     return $view;
 }, true);

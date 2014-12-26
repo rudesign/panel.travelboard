@@ -25,18 +25,6 @@ class AsyncRequest extends BaseController
         return $this->data;
     }
 
-    public function validateModel(\Phalcon\Mvc\ModelInterface $obj)
-    {
-        if ($obj->validation() == false) {
-
-            $messages = $obj->getMessages();
-            $message = (string) reset($messages);
-            $this->setMessage($message);
-
-            return false;
-        } else return true;
-    }
-
     public function setMessage($message = '')
     {
         $this->setData(array('message' => $message), true);

@@ -1,49 +1,41 @@
 <h1>Регистрация</h1>
-<div class="forms">
-    <div class="login form clearfix">
-        <?= $this->tag->form(array("sinup/do", "method" => "post")) ?>
+
+<div class="common-grid login form">
+    <div class="row x3">
+        <div class="c1">
+            <?= $this->tag->form(array("sinup/do", "method" => "post")) ?>
             <?= $this->tag->hiddenField(array("_code", 'value'=>'ba4f43')) ?>
-            <div class="row">
-                <div class="title">Ваше имя</div>
+            <div class="form-row">
+                <div class="form-title">Ваше имя</div>
                 <div class="input">
                     <?= $this->tag->textField(array("name", 'class'=>'w100')) ?>
                 </div>
             </div>
-            <div class="row">
-                <div class="title">E-mail</div>
+            <div class="form-row">
+                <div class="form-title">E-mail</div>
                 <div class="input">
                     <?= $this->tag->emailField(array("email", 'class'=>'w100')) ?>
                 </div>
             </div>
-            <div class="row">
-                <div class="title">Пароль</div>
+            <div class="form-row">
+                <div class="form-title">Пароль</div>
                 <div class="input">
-                    <?= $this->tag->passwordField(array("password", 'class'=>'w100', 'autocomplete'=>'off')) ?>
+                    <?= $this->tag->passwordField(array("password", 'class'=>'w100')) ?>
                 </div>
             </div>
-            <div class="password-repeat row">
-                <div class="title">Повторите пароль</div>
+            <div class="form-row">
+                <div class="form-title">Повторите пароль</div>
                 <div class="input">
-                    <?= $this->tag->passwordField(array("_password", 'class'=>'w100', 'autocomplete'=>'off')) ?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="title">Повторите символы</div>
-                <div class="input clearfix">
-                    <div class="left">
-                        <img src="/files/captcha.jpg" />
-                    </div>
-                    <div class="left w33">
-                        <?= $this->tag->textField(array("_entered", 'class'=>'w100', 'maxlength'=>4, 'autocomplete'=>'off')) ?>
-                    </div>
-
+                    <?= $this->tag->passwordField(array("_password", 'class'=>'w100')) ?>
                 </div>
             </div>
             <?= $this->tag->submitButton(array('Зарегистрироваться', 'onclick'=>'return signup();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
-        <?= $this->tag->endForm() ?>
-
-        <div class="info">
-            <p><?= $this->tag->linkTo('/login', 'Войти, если уже регистрировались') ?></p>
+            <?= $this->tag->endForm() ?>
+        </div>
+        <div class="c1">
+            <ul class="controls">
+                <li><?= $this->tag->linkTo('/login', 'Войти, если уже регистрировались') ?></li>
+            </ul>
         </div>
     </div>
 </div>

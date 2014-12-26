@@ -12,6 +12,12 @@ $group->add(
         'action'=>'signup',
     )
 );
+$group->add(
+    '/signup/do',
+    array(
+        'action'=>'doSignup',
+    )
+);
 
 // Login
 $group->add(
