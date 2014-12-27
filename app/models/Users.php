@@ -215,17 +215,10 @@ class Users extends \Phalcon\Mvc\Model
         // Get user by auth data
         if($user = $this->checkIfLoginExists($this->getLogin())) throw new \Exception('Login exists');
 
-        // Generate new session id
-        if(!$sid = $this->makeSid()) throw new \Exception('Empty session id');
-
-        // Change user model data set
-        $this->setSid($sid);
-
-        // Store sid in the session
-        $this->getSession()->set('sid', $sid);
-
         // Update user
         if(!$this->save()) throw new \Exception('User creation failed');
+
+        $this->login($this->getLogin(), $this->getPassword(), true);
 
         return true;
     }
@@ -238,10 +231,12 @@ class Users extends \Phalcon\Mvc\Model
      * @return bool
      * @throws Exception
      */
-    public function login($login = '', $password = '')
+    public function login($login = '', $password = '', $passwordSecured = false)
     {
+        $this->getSession()->remove('sid');
+
         // Get user by auth data
-        $user = $this->getByAuthData($login, $password);
+        $user = $this->getByAuthData($login, $password, $passwordSecured);
 
         // Generate new session id
         if(!$sid = $this->makeSid()) throw new \Exception('Empty session id');
@@ -278,7 +273,7 @@ class Users extends \Phalcon\Mvc\Model
      * @return Users
      * @throws Exception
      */
-    public function getByAuthData($login = '', $password = '')
+    public function getByAuthData($login = '', $password = '', $passwordSecured = false)
     {
         if(empty($login)) $login = $this->getLogin();
         if(empty($password)) $password = $this->getPassword();
@@ -288,7 +283,11 @@ class Users extends \Phalcon\Mvc\Model
 
         if(!$user = $this->checkIfLoginExists($login)) throw new Exception('Пользователь не зарегистрирован');
 
-        if(!$this->getDI()->get('security')->checkHash($password, $user->password)) throw new \Exception('Неверный пароль');
+        if($passwordSecured){
+            if($password != $user->password) throw new \Exception('Неверный пароль');
+        }else{
+            if(!$this->getDI()->get('security')->checkHash($password, $user->password)) throw new \Exception('Неверный пароль');
+        }
 
         return $user;
     }

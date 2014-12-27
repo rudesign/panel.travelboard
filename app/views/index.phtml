@@ -13,13 +13,7 @@
 	<div class="header clearfix">
 		<div class="inline logo">
 			<?= $this->tag->linkTo('', $this->tag->image('img/logo.png')); ?>
-		</div><div class="inline user-controls">
-			<?= $this->tag->linkTo(array('', '', 'class'=>'fa fa-cog')) ?>
-		</div><div class="inline notifications">
-			<?= $this->tag->linkTo(array('', '', 'class'=>'fa fa-bell-o')) ?>
-			<?= $this->tag->linkTo('signup', 'Sign up') ?>
-			<?= $this->tag->linkTo('login', 'Login') ?>
-		</div>
+		</div><?= $this->partial('userControls') ?>
 	</div>
 	<div class="content">
 		<div class="aside">

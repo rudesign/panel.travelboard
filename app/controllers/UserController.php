@@ -59,8 +59,8 @@ class UserController extends ViewsController
                     // Clean login attempts counter
                     $this->session->remove('attempts');
 
-                    // Move to the index page
-                    $async->setLocation();
+                    // Move to the login page
+                    $async->setLocation($this->url->get('login'));
 
                 }catch (\Exception $e){
                     // Alert message

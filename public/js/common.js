@@ -84,8 +84,8 @@ function signup() {
         success: function (response){
             if(response.message){
                 alert(response.message);
-            }else if(response.uri){
-                document.location.assign(response.uri);
+            }else if(response.location){
+                document.location.assign(response.location);
             }else if(response.html){
 
             }
