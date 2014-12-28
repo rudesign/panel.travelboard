@@ -1,20 +1,40 @@
-<div class="common-grid">
+<div class="stat common-grid">
     <div class="row x6">
-        <div class="c1"><i></i></div>
-        <div class="c1"><i></i></div>
-        <div class="c1"><i></i></div>
-        <div class="c1"><i></i></div>
-        <div class="c1"><i></i></div>
-        <div class="c1"><i></i></div>
-    </div>
-    <div class="row x2">
-        <div class="c1"><i></i></div>
-        <div class="c1">
-            <div class="row x3">
-                <div class="c1"><i></i></div>
-                <div class="c1"><i></i></div>
-                <div class="c1"><i></i></div>
-            </div>
+        <?php if(!empty($totalCountries)): ?>
+        <div class="c1 item">
+            <a href="">
+                <div class="bg-blue">
+                    <div class="wrapper">
+                        Страны
+                        <div class="value"><?= $totalCountries ?></div>
+                    </div>
+                </div>
+            </a>
         </div>
+        <?php endif; ?>
+        <?php if(!empty($totalCities)): ?>
+            <div class="c1 item">
+                <a href="">
+                    <div class="bg-blue">
+                        <div class="wrapper">
+                            Города
+                            <div class="value"><?= $totalCities ?></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php endif; ?>
+        <?php if(!empty($totalHotels)): ?>
+            <div class="c1 item">
+                <a href="">
+                    <div class="bg-blue">
+                        <div class="wrapper">
+                            Отели
+                            <div class="value"><?= $totalHotels ?></div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        <?php endif; ?>
     </div>
 </div>

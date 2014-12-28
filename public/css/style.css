@@ -544,7 +544,7 @@ a {
   a:hover {
     text-decoration: none; }
 
-.bold, b, strong {
+.bold, .stat .value, b, strong {
   font-weight: 500; }
 
 .w100 {
@@ -555,6 +555,15 @@ h1 {
   font-size: 32px;
   font-weight: 300;
   line-height: 1.2em; }
+
+.bg-blue {
+  background-color: #00b4f7;
+  color: #fff;
+  transition: 0.2s; }
+  .bg-blue a {
+    color: #fff; }
+  .bg-blue:hover {
+    background-color: #1cc1ff; }
 
 .header {
   background-color: #23bab5; }
@@ -632,5 +641,18 @@ h1 {
   @media screen and (max-width: 480px) {
     .content > .wrapper {
       margin-left: 0; } }
+
+.stat a {
+  text-decoration: none; }
+.stat .item {
+  margin-bottom: 15px; }
+.stat .wrapper {
+  position: relative;
+  padding: 10px 10px 35px; }
+.stat .value {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 20px; }
 
 /*# sourceMappingURL=style.css.map */

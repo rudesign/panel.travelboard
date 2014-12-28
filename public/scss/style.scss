@@ -51,6 +51,20 @@ h1{
   line-height: 1.2em;
 }
 
+.bg{
+  &-blue{
+    background-color: $cyan;
+    color: #fff;
+    transition: 0.2s;
+    a{
+      color: #fff;
+    }
+    &:hover{
+      background-color: lighten($cyan, 7%);
+    }
+  }
+}
+
 .header{
   $height: 50px;
   background-color: $green;
@@ -158,5 +172,24 @@ h1{
     @media screen and (max-width: 480px) {
       margin-left: 0;
     }
+  }
+}
+.stat{
+  a{
+    text-decoration: none;
+  }
+  .item{
+    margin-bottom: 15px;
+  }
+  .wrapper{
+    position: relative;
+    padding: 10px 10px 35px;
+  }
+  .value{
+    @extend .bold;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 20px;
   }
 }
