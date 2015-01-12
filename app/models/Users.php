@@ -253,6 +253,16 @@ class Users extends \Phalcon\Mvc\Model
         return true;
     }
 
+    public function isAuthorised(){
+        try{
+            if(!$this->getSession()->has('sid')) throw new \Exception;
+
+            return true;
+        }catch (\Exception $e){
+            return false;
+        }
+    }
+
     /**
      * @param string $login
      * @return Users

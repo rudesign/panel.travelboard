@@ -16,6 +16,8 @@ $router->add('/');
 // Users + People group
 include __DIR__ . '/users.php';
 
+include __DIR__ . '/countries.php';
+
 // Not found
 $router->notFound(array(
     'controller'=>'error',

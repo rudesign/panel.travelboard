@@ -62,9 +62,9 @@ class ViewsController extends BaseController
         $this->metaTags['keywords'] = $content;
     }
 
-    protected function redirectToIndex()
-    {
-        $this->response->redirect(null);
+
+    public function redirect($url = null){
+        $this->response->redirect($this->url->get($url), true);
         $this->view->disable();
     }
 

@@ -1,0 +1,6 @@
+<div class="item">
+    <?= $this->tag->linkTo($this->url->get(array(
+        "for" => "countriesItem",
+        "id" => $row->getCountryId(),
+    )), $row->getTitleRu(), false) ?>
+</div>

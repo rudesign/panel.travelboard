@@ -1,0 +1,9 @@
+<div class="common-grid">
+    <?php
+        if(!empty($grid)){
+            foreach($grid->items as $row){
+                $this->partial('countries/gridItem');
+            }
+        }
+    ?>
+</div>

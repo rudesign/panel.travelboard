@@ -143,7 +143,7 @@ class UserController extends ViewsController
     protected function redirectAuthorised()
     {
         if($this->session->has('sid')) {
-            $this->redirectToIndex();
+            $this->redirect();
         }
     }
 
@@ -154,7 +154,7 @@ class UserController extends ViewsController
     {
         $user = new Users();
         $user->logout();
-        $this->redirectToIndex();
+        $this->redirect();
     }
 }
 
