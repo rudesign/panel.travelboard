@@ -1,6 +1,26 @@
 <ul class="paginator clearfix">
 <?php
-    if($grid->current > 1)echo '<li>'.$this->tag->linkTo($this->router->getRewriteUri().($grid->before > 1 ? '?page='.$grid->before : ''), 'Назад', false).'</li>';
-    if($grid->current < $grid->total_pages) echo '<li>'.$this->tag->linkTo($this->router->getRewriteUri().'?page='.$grid->next, 'Вперёд', false).'</li>';
+
+    if($query = $this->request->getQuery()){
+        unset($query['_url']);
+    }
+
+    if($grid->current > 1){
+
+        if($grid->before > 1) $query['page'] = $grid->before;
+
+        $url = $this->router->getUrl($this->router->getCurrentPath(), $query);
+
+        echo '<li>'.$this->tag->linkTo($url, 'Назад').'</li>';
+    }
+
+    if($grid->current < $grid->total_pages){
+
+        $query['page'] = $grid->next;
+
+        $url = $this->router->getUrl($this->router->getCurrentPath(), $query);
+
+        echo '<li>'.$this->tag->linkTo($url, 'Вперёд').'</li>';
+    }
 ?>
 </ul>

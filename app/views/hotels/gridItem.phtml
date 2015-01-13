@@ -3,5 +3,5 @@
         "for" => "gridItemForm",
         "controller" => 'hotels',
         "id" => $row->getHotelId(),
-    )), $row->getName(), false) ?>
+    )), $row->getName(), false) ?><?php if(!empty($region)) echo ', '.$region; ?>
 </div>

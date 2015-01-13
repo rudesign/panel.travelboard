@@ -122,6 +122,29 @@ function login() {
     return false;
 }
 
+function saveItem() {
+
+    var container = $('.edit-form');
+    var form = container.find('form');
+
+    var options = {
+        success: function (response){
+            if(response.message){
+                alert(response.message);
+            }else if(response.location){
+                document.location.assign(response.location);
+            }else if(response.html){
+
+            }
+        },
+        dataType:  'json'
+    };
+
+    form.ajaxSubmit(options);
+
+    return false;
+}
+
 function wait(el){
     el.addClass('fa-spinner');
 }
@@ -175,4 +198,17 @@ function cookie(name, value)
     }else{
         return $.cookie(name);
     }
+}
+
+function showRegionSelector(regionId, cityId){
+    var container = $('.region-selector');
+
+    $.post('/ajaj/cities/showRegionSelector',
+        {
+            regionId: regionId,
+            cityId: cityId
+        },
+        function(response){
+            container.html(response.html);
+    }, 'json');
 }

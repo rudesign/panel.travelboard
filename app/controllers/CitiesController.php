@@ -67,7 +67,7 @@ class CitiesController extends ViewsController
 
             $model = new Cities();
 
-            $row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst();
+            $row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst();
 
             if(!count($row)) throw new \Exception;
 
@@ -78,6 +78,31 @@ class CitiesController extends ViewsController
         } catch (\Exception $e){
             $this->e404();
         }
+    }
+
+    public function showRegionSelectorAction(){
+        $async = new AsyncRequest();
+
+        try{
+            $regionId = $this->request->getPost('regionId');
+            $cityId = $this->request->getPost('cityId');
+
+            if(empty($regionId) && !empty($cityId)){
+                $model = new Cities();
+                $row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst();
+                if(!$regionId = $row->getRegionId()) throw new \Exception;
+            }
+
+            $async->data['html'] = $async->getView('cities/regionSelector', array(
+                'regionId'=>$regionId,
+                'cityId'=>$cityId,
+            ));
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
     }
 }
 

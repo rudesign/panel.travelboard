@@ -30,4 +30,13 @@ $group->add(
     )
 )->setName('gridItemForm');
 
+$group->add(
+    '/edit/:controller/:int/save',
+    array(
+        'controller' => 1,
+        'action' => 'saveItem',
+        'id'     => 2,
+    )
+);
+
 $router->mount($group);

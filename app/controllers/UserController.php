@@ -26,7 +26,7 @@ class UserController extends ViewsController
     public function doSignupAction()
     {
         // Increase attempts counter
-        //$this->session->set('attempts', ($this->session->get('attempts')+1));
+        $this->session->set('attempts', ($this->session->get('attempts')+1));
 
         // Get async request helper
         $async = new AsyncRequest();

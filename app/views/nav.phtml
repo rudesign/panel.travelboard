@@ -1,21 +1,17 @@
 <ul class="nav">
     <li>
         <i></i>
-        <a href="">Point 1</a>
+        <?= $this->tag->linkTo('show/countries', 'Страны') ?>
         <ul>
             <li><a href="" class="active">Subpoint</a></li>
             <li><a href="">Subpoint</a></li>
         </ul>
     </li>
     <li>
-        <a href="">Point 2</a>
+        <?= $this->tag->linkTo('show/cities', 'Города') ?>
     </li>
     <li>
         <i></i>
-        <a href="">Point 3</a>
-        <ul>
-            <li><a href="">Subpoint</a></li>
-            <li><a href="">Subpoint</a></li>
-        </ul>
+        <?= $this->tag->linkTo('show/hotels', 'Отели') ?>
     </li>
 </ul>

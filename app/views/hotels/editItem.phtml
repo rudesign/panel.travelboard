@@ -1,3 +1,41 @@
-<div class="edit-form">
+<div class="edit-form form">
     <h1><?= $row->getName() ?></h1>
+    <div class="common-grid">
+        <?= $this->tag->form(array($this->router->getCurrentPath().'/save', "method" => "post")) ?>
+        <div class="row x2">
+            <div class="c1">
+                <div class="form-row">
+                    <div class="form-title">Название</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("name", 'class'=>'w100', 'value'=>$row->getName())) ?>
+                    </div>
+                </div>
+                <div class="region-selector">
+                    <script language="javascript">
+                        $(document).ready(function(){ showRegionSelector(0, <?= $row->getCityId() ?>); });
+                    </script>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Адрес</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("address", 'class'=>'w100', 'value'=>$row->getAddress())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Оригинальная <?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'ссылка', false, 'target'=>'_blank')) ?> на сайте-источнике</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("url_orig", 'class'=>'w100', 'value'=>'http://booking.com'.$row->getUrlOrig())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Оригинальный ID на сайте-источнике</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("id_orig", 'class'=>'w50', 'value'=>$row->getHotelIdOrig())) ?>
+                    </div>
+                </div>
+                <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
+            </div>
+        </div>
+        <?= $this->tag->endForm() ?>
+    </div>
 </div>

@@ -16,6 +16,12 @@ class Router extends \Phalcon\Mvc\Router{
         }catch (\Exception $e){
             return '';
         }
+    }
 
+    public function getUrl($path = '/', $query = array()){
+
+        if($queryStr = http_build_query($query)) $path .= '?'.$queryStr;
+
+        return $path;
     }
 }

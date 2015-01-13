@@ -16,6 +16,8 @@ $router->add('/');
 // Users + People group
 include __DIR__ . '/users.php';
 
+include __DIR__ . '/ajaj.php';
+
 // Common grid
 include __DIR__ . '/grid.php';
 

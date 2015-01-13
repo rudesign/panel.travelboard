@@ -79,5 +79,29 @@ class HotelsController extends ViewsController
             $this->e404();
         }
     }
+
+    public function saveItemAction($id)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception;
+
+            $model = new Hotels();
+
+            $row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst();
+
+            $row->setName($this->request->getPost('name'));
+            $row->setAddress($this->request->getPost('address'));
+            $row->setCityId($this->request->getPost('city_id'));
+
+            $row->update();
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
 }
 

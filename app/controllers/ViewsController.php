@@ -25,15 +25,16 @@ class ViewsController extends BaseController
 
         // Javascript in <head>
         $this->assets
-            ->collection('jsBefore');
+            ->collection('jsBefore')
             //->setPrefix('')
-            //->addJs('js/')
+
+            ->addJs('js/jquery-1.11.1.min.js');
 
         // Javascript at the end of <body>
         $this->assets
             ->collection('jsAfter')
             //->setPrefix('')
-            ->addJs('js/jquery-1.11.1.min.js')
+
             ->addJs('js/jquery.form.min.js')
             ->addJs('js/jquery.easing.1.3.min.js')
             ->addJs('js/jquery.cookie.js')

@@ -38,6 +38,16 @@ class AsyncRequest extends BaseController
         return true;
     }
 
+    public function getView($partialPath = '', $data = array()){
+
+        $view = new \Phalcon\Mvc\View\Simple();
+
+        $view->setViewsDir("../app/views/");
+
+        return $view->render($partialPath, $data);
+    }
+
+
     /**
      * Submit content to the output
      */
