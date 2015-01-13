@@ -90,7 +90,7 @@ class CitiesController extends ViewsController
             if(empty($regionId) && !empty($cityId)){
                 $model = new Cities();
                 $row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst();
-                if(!$regionId = $row->getRegionId()) throw new \Exception;
+                $regionId = $row->getRegionId();
             }
 
             $async->data['html'] = $async->getView('cities/regionSelector', array(
