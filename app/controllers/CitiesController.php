@@ -2,7 +2,7 @@
 
 use Phalcon\Paginator\Adapter\QueryBuilder as PAdapter;
 
-class CountriesController extends ViewsController
+class CitiesController extends ViewsController
 {
     public function initialize(){
         parent::initialize();
@@ -17,7 +17,7 @@ class CountriesController extends ViewsController
         //$this->notify('Another message here');
 
         $builder = $this->modelsManager->createBuilder()
-            ->from('Countries')
+            ->from('Cities')
             ->orderBy('title_ru ASC');
 
         if($query = $this->request->get('q')){
@@ -45,7 +45,7 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Cities();
 
             $row = $model->query()->where('id='.$id)->limit(1)->execute()->getFirst();
 
@@ -65,7 +65,7 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Cities();
 
             $row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst();
 

@@ -1,0 +1,7 @@
+<div class="items">
+    <?= $this->tag->linkTo($this->url->get(array(
+        "for" => "gridItemForm",
+        "controller" => 'cities',
+        "id" => $row->getCityId(),
+    )), $row->getTitleRu(), false) ?>, <?= $row->getRegionRu() ?>
+</div>

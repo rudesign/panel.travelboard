@@ -63,7 +63,7 @@ textarea {
   font-family: "Roboto", "Arial", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  padding: 5px 10px 6px;
+  padding: 6px 10px 7px;
   border: 1px solid #e3e3e3; }
 
 input[type="radio"],
@@ -77,7 +77,7 @@ label {
 
 .buttons {
   display: block;
-  padding: 0.7em 2em 0.7em;
+  padding: 10px 2em 9px;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.2em;
@@ -550,6 +550,29 @@ a {
 .w100 {
   width: 100%; }
 
+.w75 {
+  width: 75%; }
+
+.w50 {
+  width: 50%; }
+
+.w25 {
+  width: 25%; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.paginator li {
+  display: inline-block;
+  float: left; }
+  .paginator li:first-child {
+    margin-right: 5px; }
+.paginator a {
+  color: #333; }
+
 h1 {
   margin-bottom: 30px;
   font-size: 32px;
@@ -635,7 +658,7 @@ h1 {
       width: 100%; } }
 .content > .wrapper {
   margin-left: 240px;
-  padding: 30px 40px;
+  padding: 50px 40px;
   background-color: #f5f5f5;
   color: #333; }
   @media screen and (max-width: 480px) {
@@ -654,5 +677,27 @@ h1 {
   bottom: 10px;
   right: 10px;
   font-size: 20px; }
+
+.edit-grid .search-form {
+  padding-bottom: 20px; }
+  .edit-grid .search-form .input {
+    position: relative; }
+    .edit-grid .search-form .input a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      padding: 11px;
+      text-decoration: none;
+      color: #e3e3e3;
+      transition: 0.2s; }
+      .edit-grid .search-form .input a:hover {
+        color: #333; }
+.edit-grid .scope {
+  margin-bottom: 20px; }
+.edit-grid .items {
+  margin-bottom: 10px; }
+  .edit-grid .items:last-child {
+    margin-bottom: 0; }
 
 /*# sourceMappingURL=style.css.map */

@@ -2,7 +2,7 @@
 
 use Phalcon\Paginator\Adapter\QueryBuilder as PAdapter;
 
-class CountriesController extends ViewsController
+class HotelsController extends ViewsController
 {
     public function initialize(){
         parent::initialize();
@@ -17,11 +17,11 @@ class CountriesController extends ViewsController
         //$this->notify('Another message here');
 
         $builder = $this->modelsManager->createBuilder()
-            ->from('Countries')
-            ->orderBy('title_ru ASC');
+            ->from('Hotels')
+            ->orderBy('name ASC');
 
         if($query = $this->request->get('q')){
-            $builder->where("title_ru LIKE '%{$query}%'");
+            $builder->where("name LIKE '%{$query}%'");
         }
 
         $paginator = new PAdapter(
@@ -45,13 +45,13 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Hotels();
 
-            $row = $model->query()->where('id='.$id)->limit(1)->execute()->getFirst();
+            $row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst();
 
             if(!count($row)) throw new \Exception;
 
-            $this->setTitle($row->getTitleRu());
+            $this->setTitle($row->getName());
 
             $this->view->setVar('row', $row);
 
@@ -65,13 +65,13 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Hotels();
 
-            $row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst();
+            $row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst();
 
             if(!count($row)) throw new \Exception;
 
-            $this->setTitle($row->getTitleRu());
+            $this->setTitle($row->getName());
 
             $this->view->setVar('row', $row);
 

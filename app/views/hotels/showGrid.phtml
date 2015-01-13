@@ -1,4 +1,4 @@
-<h1>Страны</h1>
+<h1>Отели</h1>
 <div class="edit-grid">
     <?= $this->partial('editGridSearchForm') ?>
 
@@ -6,7 +6,7 @@
         <div class="scope">
             <?php
                 foreach($grid->items as $row){
-                    $this->partial('countries/gridItem');
+                    $this->partial('hotels/gridItem');
                 }
             ?>
         </div>

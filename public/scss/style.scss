@@ -41,6 +41,30 @@ a{
 .w100{
   width: 100%;
 }
+.w75{
+  width: 75%;
+}
+.w50{
+  width: 50%;
+}
+.w25{
+  width: 25%;
+}
+.left{ float: left; }
+.right{ float: right; }
+
+.paginator{
+  li{
+    display: inline-block;
+    float: left;
+    &:first-child{
+      margin-right: 5px;
+    }
+  }
+  a{
+    color: $black;
+  }
+}
 
 h1{
   margin-bottom: 30px;
@@ -165,7 +189,7 @@ h1{
   }
   > .wrapper{
     margin-left: $asideWidth;
-    padding: 30px 40px;
+    padding: 50px 40px;
     background-color: $lightGray;
     color: $black;
 
@@ -191,5 +215,36 @@ h1{
     bottom: 10px;
     right: 10px;
     font-size: 20px;
+  }
+}
+
+.edit-grid{
+  .search-form{
+    padding-bottom: 20px;
+    .input{
+      position: relative;
+      a{
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        padding: 11px;
+        text-decoration: none;
+        color: $gray;
+        transition: 0.2s;
+        &:hover{
+          color: $black;
+        }
+      }
+    }
+  }
+  .scope{
+    margin-bottom: 20px;
+  }
+  .items{
+    margin-bottom: 10px;
+    &:last-child{
+      margin-bottom: 0;
+    }
   }
 }

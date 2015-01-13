@@ -1,0 +1,10 @@
+<div class="search-form common-grid">
+    <?= $this->tag->form(array($this->router->getCurrentPath(), "method" => "get")) ?>
+    <div class="row x2">
+        <div class="input c1 clearfix">
+            <?= $this->tag->textField(array("q", 'class'=>'w100', 'value'=>($this->request->get('q') ? $this->request->get('q') : ''))) ?>
+            <?= $this->tag->linkTo(array('javascript:void(0);', '', false, 'onclick'=>"$('.edit-grid form').submit();", 'class'=>'fa fa-search')) ?>
+        </div>
+    </div>
+    <?= $this->tag->endForm() ?>
+</div>

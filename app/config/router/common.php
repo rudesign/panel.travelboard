@@ -1,6 +1,6 @@
 <?php
 
-$router = new Phalcon\Mvc\Router(false);
+$router = new Router(false);
 
 $router->setDI($di);
 
@@ -16,7 +16,8 @@ $router->add('/');
 // Users + People group
 include __DIR__ . '/users.php';
 
-include __DIR__ . '/countries.php';
+// Common grid
+include __DIR__ . '/grid.php';
 
 // Not found
 $router->notFound(array(
