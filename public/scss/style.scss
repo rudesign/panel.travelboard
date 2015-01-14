@@ -182,7 +182,7 @@ h1{
       display: none;
       }
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 640px) {
       position: relative;
       width: 100%;
     }
@@ -193,7 +193,7 @@ h1{
     background-color: $lightGray;
     color: $black;
 
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 640px) {
       margin-left: 0;
     }
   }
@@ -220,7 +220,7 @@ h1{
 
 .edit-grid{
   .search-form{
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     .input{
       position: relative;
       a{

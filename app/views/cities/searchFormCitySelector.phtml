@@ -1,35 +1,31 @@
-<div class="form-row">
-    <div class="form-title">Регион</div>
-    <div class="input">
+
+    <div class="left input">
         <?=
             $this->tag->select(array(
-                'region_id',
+                'r',
                 Regions::find(array("country_id = 1", "order" => "title_ru ASC")),
                 'using' => array('region_id', 'title_ru'),
                 'useEmpty' => true,
                 'emptyText' => 'выберите...',
                 'emptyValue' => 0,
-                'onChange' => 'showCitySelector($(this).val(), 0)',
-                'value'=>$regionId
+                'onChange' => 'this.form.submit();',
+                'value'=>$this->request->get('r')
             ))
         ?>
     </div>
-</div>
-<?php if(!empty($regionId) || !empty($cityId)): ?>
-<div class="form-row">
-    <div class="form-title">Город</div>
-    <div class="input">
+<?php if($this->request->get('r')): ?>
+    <div class="left input">
         <?=
             $this->tag->select(array(
-                'city_id',
-                Cities::find(array(($regionId ? 'region_id = '.$regionId : 'city_id = '.$cityId), "order" => "title_ru ASC")),
+                'c',
+                Cities::find(array('region_id = '.$this->request->get('r'), "order" => "title_ru ASC")),
                 'using' => array('city_id', 'title_ru'),
                 'useEmpty' => true,
                 'emptyText' => 'выберите...',
                 'emptyValue' => 0,
-                'value'=>$cityId
+                'onChange' => 'this.form.submit();',
+                'value'=>$this->request->get('c')
             ))
         ?>
     </div>
-</div>
 <?php endif; ?>

@@ -20,9 +20,9 @@ class HotelsController extends ViewsController
             ->from('Hotels')
             ->orderBy('name ASC');
 
-        if($query = $this->request->get('q')){
-            $builder->where("name LIKE '%{$query}%'");
-        }
+        if($query = $this->request->get('q')) $builder->where("name LIKE '%{$query}%'");
+        if($query = $this->request->get('r')) $builder->where("region_id = '{$query}'");
+        if($query = $this->request->get('c')) $builder->where("city_id = '{$query}'");
 
         $paginator = new PAdapter(
             array(
@@ -91,6 +91,7 @@ class HotelsController extends ViewsController
 
             $row->setName($this->request->getPost('name'));
             $row->setAddress($this->request->getPost('address'));
+            $row->setRegionId($this->request->getPost('region_id'));
             $row->setCityId($this->request->getPost('city_id'));
 
             if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');

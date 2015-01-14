@@ -79,6 +79,7 @@ class CitiesController extends ViewsController
     }
 
     public function showRegionSelectorAction(){
+
         $async = new AsyncRequest();
 
         try{
@@ -102,6 +103,7 @@ class CitiesController extends ViewsController
     }
 
     public function showCitySelectorAction(){
+
         $async = new AsyncRequest();
 
         try{
@@ -118,6 +120,20 @@ class CitiesController extends ViewsController
                 'regionId'=>$regionId,
                 'cityId'=>$cityId,
             ));
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
+
+    public function showSearchFormCitySelectorAction(){
+
+        $async = new AsyncRequest();
+
+        try{
+            $async->data['html'] = $async->getView('cities/searchFormCitySelector');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());

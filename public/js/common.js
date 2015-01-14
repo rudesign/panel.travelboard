@@ -231,3 +231,13 @@ function showCitySelector(regionId, cityId){
             container.html(response.html);
     }, 'json');
 }
+
+function showSearchFormCitySelector(regionId){
+    var container = $('.search-form .region-selector');
+
+    $.post('/ajaj/cities/showSearchFormCitySelector',
+        {regionId: regionId},
+        function(response){
+            container.html(response.html);
+        }, 'json');
+}
