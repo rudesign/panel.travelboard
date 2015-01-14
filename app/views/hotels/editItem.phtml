@@ -34,6 +34,15 @@
                         <?= $this->tag->textField(array("id_orig", 'class'=>'w50', 'value'=>$row->getHotelIdOrig())) ?>
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="input">
+                        <?php
+                        $prop = array('status', 'value' => 203);
+                        if($row->getStatus() == 203) $prop['checked'] = 'checked';
+                        echo $this->tag->checkField($prop) ;
+                        ?> <label>проверено</label>
+                    </div>
+                </div>
                 <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
             </div>
         </div>

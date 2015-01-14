@@ -25,6 +25,13 @@ img{
   display: block;
 }
 
+.red{
+  color: $red;
+}
+.green{
+  color: $lightGreen;
+}
+
 a{
   color: $blue;
   text-decoration: underline;

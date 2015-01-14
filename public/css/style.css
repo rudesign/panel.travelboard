@@ -531,6 +531,12 @@ body {
 img {
   display: block; }
 
+.red {
+  color: #DA4453; }
+
+.green {
+  color: #82bc31; }
+
 a {
   color: #0857a6;
   text-decoration: underline;

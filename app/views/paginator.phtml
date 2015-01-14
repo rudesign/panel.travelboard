@@ -7,7 +7,7 @@
 
     if($grid->current > 1){
 
-        if($grid->before > 1) $query['page'] = $grid->before;
+        if($grid->before > 1) $query['page'] = $grid->before; else unset($query['page']);
 
         $url = $this->router->getUrl($this->router->getCurrentPath(), $query);
 
