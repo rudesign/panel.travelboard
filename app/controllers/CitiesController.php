@@ -67,9 +67,7 @@ class CitiesController extends ViewsController
 
             $model = new Cities();
 
-            $row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst();
-
-            if(!count($row)) throw new \Exception;
+            if(!$row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
             $this->setTitle($row->getTitleRu());
 
@@ -85,7 +83,6 @@ class CitiesController extends ViewsController
 
         try{
             $regionId = $this->request->getPost('regionId');
-            $cityId = $this->request->getPost('cityId');
 
             if(empty($regionId) && !empty($cityId)){
                 $model = new Cities();
@@ -95,8 +92,55 @@ class CitiesController extends ViewsController
 
             $async->data['html'] = $async->getView('cities/regionSelector', array(
                 'regionId'=>$regionId,
+            ));
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
+
+    public function showCitySelectorAction(){
+        $async = new AsyncRequest();
+
+        try{
+            $regionId = $this->request->getPost('regionId');
+            $cityId = $this->request->getPost('cityId');
+
+            if(empty($regionId) && !empty($cityId)){
+                $model = new Cities();
+                $row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst();
+                $regionId = $row->getRegionId();
+            }
+
+            $async->data['html'] = $async->getView('cities/citySelector', array(
+                'regionId'=>$regionId,
                 'cityId'=>$cityId,
             ));
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
+
+    public function saveItemAction($id)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception;
+
+            $model = new Cities();
+
+            if(!$row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+
+            $row->setTitleRu($this->request->getPost('name'));
+            $row->setRegionId($this->request->getPost('region_id'));
+
+            if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());

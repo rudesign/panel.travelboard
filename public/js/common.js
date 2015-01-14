@@ -205,10 +205,24 @@ function cookie(name, value)
     }
 }
 
-function showRegionSelector(regionId, cityId){
+function showRegionSelector(regionId){
     var container = $('.region-selector');
 
     $.post('/ajaj/cities/showRegionSelector',
+        {
+            regionId: regionId
+        },
+        function(response){
+            container.html(response.html);
+        }, 'json');
+}
+
+function showCitySelector(regionId, cityId){
+    var container = $('.region-selector');
+
+    container.find('.form-row:last-child').remove();
+
+    $.post('/ajaj/cities/showCitySelector',
         {
             regionId: regionId,
             cityId: cityId

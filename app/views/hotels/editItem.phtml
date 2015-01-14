@@ -11,8 +11,9 @@
                     </div>
                 </div>
                 <div class="region-selector">
+                    <div class="form-row"><i class="fa fa-spinner" style="display: inline-block"></i> подождите...</div>
                     <script language="javascript">
-                        $(document).ready(function(){ showRegionSelector(0, <?= $row->getCityId() ?>); });
+                        $(document).ready(function(){ showCitySelector(0, <?= $row->getCityId() ?>); });
                     </script>
                 </div>
                 <div class="form-row">
@@ -22,7 +23,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-title">Оригинальная <?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'ссылка', false, 'target'=>'_blank')) ?> на сайте-источнике</div>
+                    <div class="form-title">Оригинальная <?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'ссылка', false, 'target'=>'_blank')) ?> <i class="fa fa-share" style="display: inline-block;"></i> на сайте-источнике</div>
                     <div class="input">
                         <?= $this->tag->textField(array("url_orig", 'class'=>'w100', 'value'=>'http://booking.com'.$row->getUrlOrig())) ?>
                     </div>

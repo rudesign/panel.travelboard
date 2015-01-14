@@ -67,9 +67,7 @@ class HotelsController extends ViewsController
 
             $model = new Hotels();
 
-            $row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst();
-
-            if(!count($row)) throw new \Exception;
+            if(!$row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
             $this->setTitle($row->getName());
 
@@ -89,13 +87,13 @@ class HotelsController extends ViewsController
 
             $model = new Hotels();
 
-            $row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst();
+            if(!$row = $model->query()->where('hotel_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
             $row->setName($this->request->getPost('name'));
             $row->setAddress($this->request->getPost('address'));
             $row->setCityId($this->request->getPost('city_id'));
 
-            if($row->update()){ $async->setOKMessage('Done'); }else throw new \Exception('An error occurred');
+            if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());

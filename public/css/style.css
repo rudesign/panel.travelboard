@@ -131,48 +131,42 @@ label {
   .common-grid .row > .c1 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row > .c2 {
   display: inline-block;
   float: left; }
   .common-grid .row > .c2 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row > .c3 {
   display: inline-block;
   float: left; }
   .common-grid .row > .c3 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row > .c4 {
   display: inline-block;
   float: left; }
   .common-grid .row > .c4 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row > .c5 {
   display: inline-block;
   float: left; }
   .common-grid .row > .c5 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row > .c6 {
   display: inline-block;
   float: left; }
   .common-grid .row > .c6 i {
     display: block;
     height: 10px;
-    margin-bottom: 1px;
-    background-color: #ccc; }
+    margin-bottom: 1px; }
 .common-grid .row.x2 > .c1 {
   width: 48.5%;
   margin-right: 3%; }
@@ -696,7 +690,7 @@ h1 {
 .edit-grid .scope {
   margin-bottom: 20px; }
 .edit-grid .items {
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
   .edit-grid .items:last-child {
     margin-bottom: 0; }
 

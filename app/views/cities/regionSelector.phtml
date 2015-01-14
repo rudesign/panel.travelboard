@@ -9,28 +9,8 @@
                 'useEmpty' => true,
                 'emptyText' => 'выберите...',
                 'emptyValue' => 0,
-                'onChange' => 'showRegionSelector($(this).val(), 0)',
                 'value'=>$regionId
             ))
         ?>
     </div>
 </div>
-<?php if(!empty($regionId) || !empty($cityId)): ?>
-<div class="form-row">
-    <div class="form-title">Город</div>
-    <div class="input">
-        <?=
-            $this->tag->select(array(
-                'city_id',
-                Cities::find(array(($regionId ? 'region_id = '.$regionId : 'city_id = '.$cityId), "order" => "title_ru ASC")),
-                'using' => array('city_id', 'title_ru'),
-                'useEmpty' => true,
-                'emptyText' => 'выберите...',
-                'emptyValue' => 0,
-                'onChange' => 'showRegionSelector(0, $(this).val())',
-                'value'=>$cityId
-            ))
-        ?>
-    </div>
-</div>
-<?php endif; ?>
