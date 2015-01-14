@@ -33,6 +33,10 @@ class Hotels extends \Phalcon\Mvc\Model
      */
     protected $address;
 
+    protected $address_orig;
+
+    protected $summary;
+
     /**
      *
      * @var string
@@ -117,6 +121,20 @@ class Hotels extends \Phalcon\Mvc\Model
     public function setAddress($address)
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function setAddressOrig($address)
+    {
+        $this->address_orig = $address;
+
+        return $this;
+    }
+
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
 
         return $this;
     }
@@ -218,6 +236,16 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->address;
     }
 
+    public function getAddressOrig()
+    {
+        return $this->address_orig;
+    }
+
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
     /**
      * Returns the value of field url_orig
      *
@@ -269,7 +297,9 @@ class Hotels extends \Phalcon\Mvc\Model
             'city_id' => 'city_id',
             'name' => 'name',
             'address' => 'address', 
-            'url_orig' => 'url_orig', 
+            'address_orig' => 'address_orig',
+            'summary' => 'summary',
+            'url_orig' => 'url_orig',
             'hotel_id_orig' => 'hotel_id_orig', 
             'thumb_uri_orig' => 'thumb_uri_orig', 
             'status' => 'status'

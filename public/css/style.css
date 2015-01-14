@@ -66,6 +66,9 @@ textarea {
   padding: 6px 10px 7px;
   border: 1px solid #e3e3e3; }
 
+textarea {
+  resize: none; }
+
 input[type="radio"],
 input[type="checkbox"] {
   position: relative;
@@ -699,5 +702,8 @@ h1 {
   margin-bottom: 15px; }
   .edit-grid .items:last-child {
     margin-bottom: 0; }
+
+.edit-form textarea {
+  height: 20em; }
 
 /*# sourceMappingURL=style.css.map */

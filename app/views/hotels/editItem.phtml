@@ -17,13 +17,25 @@
                     </script>
                 </div>
                 <div class="form-row">
-                    <div class="form-title">Адрес</div>
+                    <div class="form-title">Оригинальный город</div>
                     <div class="input">
                         <?= $this->tag->textField(array("address", 'class'=>'w100', 'value'=>$row->getAddress())) ?>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-title">Оригинальная <?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'ссылка', false, 'target'=>'_blank')) ?> <i class="fa fa-share" style="display: inline-block;"></i> на сайте-источнике</div>
+                    <div class="form-title">Оригинальный адрес</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("address_orig", 'class'=>'w100', 'value'=>$row->getAddressOrig())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Описание</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array("summary", 'class'=>'w100', 'value'=>$row->getSummary())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title"><?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'Страница', false, 'target'=>'_blank')) ?> <i class="fa fa-share" style="display: inline-block;"></i> на сайте-источнике</div>
                     <div class="input">
                         <?= $this->tag->textField(array("url_orig", 'class'=>'w100', 'value'=>'http://booking.com'.$row->getUrlOrig())) ?>
                     </div>
@@ -37,8 +49,8 @@
                 <div class="form-row">
                     <div class="input">
                         <?php
-                        $prop = array('status', 'value' => 203);
-                        if($row->getStatus() == 203) $prop['checked'] = 'checked';
+                        $prop = array('status', 'value' => 500);
+                        if($row->getStatus() == 500) $prop['checked'] = 'checked';
                         echo $this->tag->checkField($prop) ;
                         ?> <label>проверено</label>
                     </div>
