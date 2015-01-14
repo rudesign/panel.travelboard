@@ -1,0 +1,30 @@
+.alert {
+  padding: 15px;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  /* Each alert has its own width */
+  float: right;
+  clear: right; }
+
+.alert-red {
+  color: white;
+  background-color: #DA4453; }
+
+.alert-green {
+  color: white;
+  background-color: #82bc31; }
+
+.alert-blue {
+  color: white;
+  background-color: #4A89DC; }
+
+.alert-yellow {
+  color: white;
+  background-color: #F6BB42; }
+
+.alert-orange {
+  color: white;
+  background-color: #E9573F; }
+
+/*# sourceMappingURL=ohsnap.css.map */

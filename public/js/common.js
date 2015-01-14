@@ -9,6 +9,9 @@ $(document).ready(function(){
     initNotification();
 
     initExpandableNav();
+
+    //ohSnap('Oh Snap!', 'red'); // Place an alert
+    //ohSnapX(); // Remove alerts
 });
 
 var expand = function(expandable) {
@@ -130,7 +133,9 @@ function saveItem() {
     var options = {
         success: function (response){
             if(response.message){
-                alert(response.message);
+                ohSnap(response.message, 'red');
+            }else if(response.okMessage){
+                ohSnap(response.okMessage, 'green');
             }else if(response.location){
                 document.location.assign(response.location);
             }else if(response.html){

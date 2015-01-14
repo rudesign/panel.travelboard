@@ -15,12 +15,15 @@ class ViewsController extends BaseController
         // CSS in <head>
         $this->assets
             ->collection('cssBefore')
+
             ->addCss('css/font-awesome-4.2.0/css/font-awesome.min.css')
+            ->addCss('css/ohsnap.css')
             ->addCss('css/style.css');
 
         // CSS at the end of <body>
         $this->assets
             ->collection('cssAfter');
+
             //->setPrefix('')
 
         // Javascript in <head>
@@ -39,6 +42,7 @@ class ViewsController extends BaseController
             ->addJs('js/jquery.easing.1.3.min.js')
             ->addJs('js/jquery.cookie.js')
             ->addJs('js/respond.min.js')
+            ->addJs('js/ohsnap.js')
             ->addJs('js/common.js');
     }
 

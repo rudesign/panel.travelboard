@@ -30,6 +30,11 @@ class AsyncRequest extends BaseController
         $this->setData(array('message' => $message), true);
     }
 
+    public function setOKMessage($message = '')
+    {
+        $this->setData(array('okMessage' => $message), true);
+    }
+
     public function setLocation($location = '')
     {
         if(empty($location)) $location = $this->url->getBaseUri();

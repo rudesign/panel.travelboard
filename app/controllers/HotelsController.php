@@ -95,7 +95,7 @@ class HotelsController extends ViewsController
             $row->setAddress($this->request->getPost('address'));
             $row->setCityId($this->request->getPost('city_id'));
 
-            $row->update();
+            if($row->update()){ $async->setOKMessage('Done'); }else throw new \Exception('An error occurred');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());
