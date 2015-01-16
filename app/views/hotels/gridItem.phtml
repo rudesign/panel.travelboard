@@ -1,5 +1,5 @@
 <div class="items">
-    <?php if($row->getStatus() == 203) echo '<i class="fa green fa-check" style="display: inline-block"></i>'; ?>
+    <?php if($row->getStatus() == 500) echo '<i class="fa green fa-check" style="display: inline-block"></i>'; ?>
     <?php if($row->cities->getTitleRu() != $row->getAddress()) echo '<i class="fa red fa-exclamation-triangle" style="display: inline-block"></i>'; ?>
     <?= $this->tag->linkTo($this->url->get(array(
         "for" => "gridItemForm",

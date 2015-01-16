@@ -27,6 +27,10 @@ class Hotels extends \Phalcon\Mvc\Model
      */
     protected $name;
 
+    protected $type;
+
+    protected $rating;
+
     /**
      *
      * @var string
@@ -35,7 +39,17 @@ class Hotels extends \Phalcon\Mvc\Model
 
     protected $address_orig;
 
+    protected $rooms;
+
+    protected $lat;
+
+    protected $lng;
+
     protected $summary;
+
+    protected $payment_types;
+
+    protected $gallery;
 
     /**
      *
@@ -112,6 +126,20 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this;
     }
 
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
     /**
      * Method to set the value of field address
      *
@@ -125,6 +153,20 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this;
     }
 
+    public function setLat($lat)
+    {
+        $this->lat = $lat;
+
+        return $this;
+    }
+
+    public function setLng($lng)
+    {
+        $this->lng = $lng;
+
+        return $this;
+    }
+
     public function setAddressOrig($address)
     {
         $this->address_orig = $address;
@@ -132,9 +174,37 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this;
     }
 
+    public function setRooms($rooms)
+    {
+        $this->rooms = $rooms;
+
+        return $this;
+    }
+
+    public function setRoomTypes($room_types)
+    {
+        $this->room_types = $room_types;
+
+        return $this;
+    }
+
     public function setSummary($summary)
     {
         $this->summary = $summary;
+
+        return $this;
+    }
+
+    public function setPaymentTypes($payment_types)
+    {
+        $this->payment_types = $payment_types;
+
+        return $this;
+    }
+
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
 
         return $this;
     }
@@ -226,6 +296,16 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->name;
     }
 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
     /**
      * Returns the value of field address
      *
@@ -241,9 +321,29 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->address_orig;
     }
 
+    public function getRooms()
+    {
+        return $this->rooms;
+    }
+
+    public function getRoomTypes()
+    {
+        return $this->room_types;
+    }
+
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    public function getPaymentTypes()
+    {
+        return $this->payment_types;
+    }
+
+    public function getGallery()
+    {
+        return $this->gallery;
     }
 
     /**
@@ -296,9 +396,17 @@ class Hotels extends \Phalcon\Mvc\Model
             'region_id' => 'region_id',
             'city_id' => 'city_id',
             'name' => 'name',
-            'address' => 'address', 
+            'type' => 'type',
+            'rating' => 'rating',
+            'address' => 'address',
             'address_orig' => 'address_orig',
+            'rooms' => 'rooms',
+            'room_types' => 'room_types',
             'summary' => 'summary',
+            'payment_types' => 'payment_types',
+            'gallery' => 'gallery',
+            'lat' => 'lat',
+            'lng' => 'lng',
             'url_orig' => 'url_orig',
             'hotel_id_orig' => 'hotel_id_orig', 
             'thumb_uri_orig' => 'thumb_uri_orig', 
