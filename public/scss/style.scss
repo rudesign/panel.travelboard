@@ -57,8 +57,13 @@ a{
 .w25{
   width: 25%;
 }
+
 .left{ float: left; }
 .right{ float: right; }
+
+.fitted img{
+  max-width: 100%;
+}
 
 .paginator{
   li{

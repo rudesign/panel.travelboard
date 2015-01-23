@@ -568,6 +568,9 @@ a {
 .right {
   float: right; }
 
+.fitted img {
+  max-width: 100%; }
+
 .paginator li {
   display: inline-block;
   float: left; }

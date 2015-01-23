@@ -29,15 +29,113 @@
                     </div>
                 </div>
                 <div class="form-row">
+                    <div class="form-title">Geo-координаты: широта и долгота</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("lat", 'class'=>'w50 left', 'value'=>$row->getLat())) ?>
+                        <?= $this->tag->textField(array("lng", 'class'=>'w50', 'value'=>$row->getLng())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="fitted">
+                        <img src="http://static-maps.yandex.ru/1.x/?ll=<?= $row->getLng() ?>,<?= $row->getLat() ?>&size=450,200&z=13&l=map&pt=<?= $row->getLng() ?>,<?= $row->getLat() ?>,pm2lbm~37.64,55.76363" />
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Рейтинг из 5 звезд</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("rating", 'class'=>'w25', 'value'=>$row->getRating())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
                     <div class="form-title">Описание</div>
                     <div class="input">
                         <?= $this->tag->textarea(array("summary", 'class'=>'w100', 'value'=>$row->getSummary())) ?>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-title">Geo-координаты: широта и долгота</div>
+                    <div class="form-title">Сервисы в отеле</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("address_orig", 'class'=>'w100', 'value'=>$row->getAddressOrig())) ?>
+                        <?= $this->tag->textarea(array("services", 'class'=>'w100', 'value'=>$row->getServices(), 'style'=>'height:5em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Дополнительное описание сервисов</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array('extra_services', 'class'=>'w100', 'value'=>$row->getExtraServices(), 'style'=>'height:5em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Количество комнат</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("rooms", 'class'=>'w25', 'value'=>$row->getRooms())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Типы комнат (по типу на каждой строке)</div>
+                    <div class="input">
+                        <?php
+                            $types = $row->getRoomTypes();
+                            $types = str_replace('# ', "\n", $types);
+                            echo $this->tag->textarea(array("room_types", 'class'=>'w100', 'value'=>$types, 'style'=>'height:9em'));
+                        ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Время Checkin и Checkout</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("checkin", 'class'=>'w50 left', 'value'=>$row->getCheckin())) ?>
+                        <?= $this->tag->textField(array("checkout", 'class'=>'w50', 'value'=>$row->getCheckout())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Языки, на который говорит персонал</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array('languages', 'class'=>'w100', 'value'=>$row->getLanguages())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Размещение детей</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array('children_policy', 'class'=>'w100', 'value'=>$row->getChildrenPolicy(), 'style'=>'height:9em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Питание</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array('food', 'class'=>'w100', 'value'=>$row->getFood(), 'style'=>'height:4em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Парковка</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array('parking', 'class'=>'w100', 'value'=>$row->getParking(), 'style'=>'height:4em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Спорт и здоровье</div>
+                    <div class="input">
+                        <?= $this->tag->textarea(array('wellness', 'class'=>'w100', 'value'=>$row->getWellness(), 'style'=>'height:4em')) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="input">
+                        <?php
+                        $prop = array('free_internet', 'value' => 1);
+                        if($row->getFreeInternet()) $prop['checked'] = 'checked';
+                        echo $this->tag->checkField($prop) ;
+                        ?> <label>точки бесплатного доступа в Интернет</label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Доступ в Интернет</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array('internet', 'class'=>'w100', 'value'=>$row->getInternet())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Принимаемые к оплате пластиковые карты</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array('payment_types', 'class'=>'w100', 'value'=>$row->getPaymentTypes())) ?>
                     </div>
                 </div>
                 <div class="form-row">
@@ -59,6 +157,12 @@
                         if($row->getStatus() == 500) $prop['checked'] = 'checked';
                         echo $this->tag->checkField($prop) ;
                         ?> <label>проверено</label>
+
+                        <?php
+                        $prop = array('gallery_downloaded', 'value' => 1);
+                        if($row->getGalleryDownloaded()) $prop['checked'] = 'checked';
+                        echo $this->tag->checkField($prop) ;
+                        ?> <label>фотогалерея скачана</label>
                     </div>
                 </div>
                 <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
