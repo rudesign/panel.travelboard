@@ -25,11 +25,11 @@ class Hotels extends \Phalcon\Mvc\Model
 
     protected $rooms;
 
-    protected $roomTypes;
+    protected $room_types;
 
-    protected $checkIn;
+    protected $checkin;
 
-    protected $checkOut;
+    protected $checkout;
 
     protected $languages;
 

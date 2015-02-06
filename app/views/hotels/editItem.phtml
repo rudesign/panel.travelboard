@@ -13,7 +13,7 @@
                 <div class="region-selector">
                     <div class="form-row"><i class="fa fa-spinner" style="display: inline-block"></i> подождите...</div>
                     <script language="javascript">
-                        $(document).ready(function(){ showCitySelector(0, <?= $row->getCityId() ?>); });
+                        $(document).ready(function(){ showCitySelector(0, <? echo $row->getHotelId() ? $row->getCityId() : 0; ?>); });
                     </script>
                 </div>
                 <div class="form-row">
@@ -35,11 +35,13 @@
                         <?= $this->tag->textField(array("lng", 'class'=>'w50', 'value'=>$row->getLng())) ?>
                     </div>
                 </div>
+                <? if($row->getLng() && $row->getLat()): ?>
                 <div class="form-row">
                     <div class="fitted">
                         <img src="http://static-maps.yandex.ru/1.x/?ll=<?= $row->getLng() ?>,<?= $row->getLat() ?>&size=450,200&z=13&l=map&pt=<?= $row->getLng() ?>,<?= $row->getLat() ?>,pm2lbm~37.64,55.76363" />
                     </div>
                 </div>
+                <? endif; ?>
                 <div class="form-row">
                     <div class="form-title">Рейтинг из 5 звезд</div>
                     <div class="input">
@@ -83,8 +85,8 @@
                 <div class="form-row">
                     <div class="form-title">Время Checkin и Checkout</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("checkin", 'class'=>'w50 left', 'value'=>$row->getCheckin())) ?>
-                        <?= $this->tag->textField(array("checkout", 'class'=>'w50', 'value'=>$row->getCheckout())) ?>
+                        <?= $this->tag->textField(array("checkin", 'class'=>'w50 left', 'value'=>$row->getCheckIn())) ?>
+                        <?= $this->tag->textField(array("checkout", 'class'=>'w50', 'value'=>$row->getCheckOut())) ?>
                     </div>
                 </div>
                 <div class="form-row">
@@ -139,15 +141,15 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-title"><?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'Страница', false, 'target'=>'_blank')) ?> <i class="fa fa-share" style="display: inline-block;"></i> на сайте-источнике</div>
+                    <div class="form-title"><?= $this->tag->linkTo(array('http://booking.com'.$row->getUrlOrig(), 'Страница', false, 'target'=>'_blank')) ?> <i class="fa fa-share" style="display: inline-block;"></i> на booking.com</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("url_orig", 'class'=>'w100', 'value'=>'http://booking.com'.$row->getUrlOrig())) ?>
+                        <?= $this->tag->textField(array("url_orig", 'class'=>'w100', 'value'=>$row->getUrlOrig())) ?>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-title">Оригинальный ID на сайте-источнике</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("id_orig", 'class'=>'w50', 'value'=>$row->getHotelIdOrig())) ?>
+                        <?= $this->tag->textField(array("hotel_id_orig", 'class'=>'w50', 'value'=>$row->getHotelIdOrig())) ?>
                     </div>
                 </div>
                 <div class="form-row">

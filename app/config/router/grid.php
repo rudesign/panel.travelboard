@@ -13,6 +13,21 @@ $group->add(
 
 // Item
 $group->add(
+    '/create/:controller',
+    array(
+        'controller' => 1,
+        'action' => 'createItem',
+    )
+);
+$group->add(
+    '/create/:controller/save',
+    array(
+        'controller' => 1,
+        'action' => 'saveItem',
+    )
+);
+
+$group->add(
     '/show/:controller/:int',
     array(
         'controller' => 1,
