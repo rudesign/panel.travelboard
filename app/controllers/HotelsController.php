@@ -93,7 +93,10 @@ class HotelsController extends ViewsController
             $row->setAddress($this->request->getPost('address'));
             $row->setRegionId($this->request->getPost('region_id'));
             $row->setCityId($this->request->getPost('city_id'));
+            // 500 - moderated
             $row->setStatus((($this->request->getPost('status') == 500) ? 500 : 202));
+            $row->setLat($this->request->getPost('lat'));
+            $row->setLng($this->request->getPost('lng'));
 
             if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
 
