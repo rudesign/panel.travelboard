@@ -2,18 +2,9 @@
 
 class Regions extends \Phalcon\Mvc\Model
 {
-
-    /**
-     *
-     * @var integer
-     */
-    protected $region_id;
-
-    /**
-     *
-     * @var integer
-     */
     protected $country_id;
+
+    protected $region_id;
 
     /**
      *
@@ -25,79 +16,14 @@ class Regions extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    protected $title_ua;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_be;
-
-    /**
-     *
-     * @var string
-     */
     protected $title_en;
 
-    /**
-     *
-     * @var string
-     */
-    protected $title_es;
+    public function setCountryId($country_id)
+    {
+        $this->country_id = $country_id;
 
-    /**
-     *
-     * @var string
-     */
-    protected $title_pt;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_de;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_fr;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_it;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_pl;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_ja;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_lt;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_lv;
-
-    /**
-     *
-     * @var string
-     */
-    protected $title_cz;
+        return $this;
+    }
 
     /**
      * Method to set the value of field region_id
@@ -112,18 +38,6 @@ class Regions extends \Phalcon\Mvc\Model
         return $this;
     }
 
-    /**
-     * Method to set the value of field country_id
-     *
-     * @param integer $country_id
-     * @return $this
-     */
-    public function setCountryId($country_id)
-    {
-        $this->country_id = $country_id;
-
-        return $this;
-    }
 
     /**
      * Method to set the value of field title_ru
@@ -337,25 +251,6 @@ class Regions extends \Phalcon\Mvc\Model
         return $this->title_ru;
     }
 
-    /**
-     * Returns the value of field title_ua
-     *
-     * @return string
-     */
-    public function getTitleUa()
-    {
-        return $this->title_ua;
-    }
-
-    /**
-     * Returns the value of field title_be
-     *
-     * @return string
-     */
-    public function getTitleBe()
-    {
-        return $this->title_be;
-    }
 
     /**
      * Returns the value of field title_en
@@ -367,75 +262,6 @@ class Regions extends \Phalcon\Mvc\Model
         return $this->title_en;
     }
 
-    /**
-     * Returns the value of field title_es
-     *
-     * @return string
-     */
-    public function getTitleEs()
-    {
-        return $this->title_es;
-    }
-
-    /**
-     * Returns the value of field title_pt
-     *
-     * @return string
-     */
-    public function getTitlePt()
-    {
-        return $this->title_pt;
-    }
-
-    /**
-     * Returns the value of field title_de
-     *
-     * @return string
-     */
-    public function getTitleDe()
-    {
-        return $this->title_de;
-    }
-
-    /**
-     * Returns the value of field title_fr
-     *
-     * @return string
-     */
-    public function getTitleFr()
-    {
-        return $this->title_fr;
-    }
-
-    /**
-     * Returns the value of field title_it
-     *
-     * @return string
-     */
-    public function getTitleIt()
-    {
-        return $this->title_it;
-    }
-
-    /**
-     * Returns the value of field title_pl
-     *
-     * @return string
-     */
-    public function getTitlePl()
-    {
-        return $this->title_pl;
-    }
-
-    /**
-     * Returns the value of field title_ja
-     *
-     * @return string
-     */
-    public function getTitleJa()
-    {
-        return $this->title_ja;
-    }
 
     /**
      * Returns the value of field title_lt
@@ -447,25 +273,6 @@ class Regions extends \Phalcon\Mvc\Model
         return $this->title_lt;
     }
 
-    /**
-     * Returns the value of field title_lv
-     *
-     * @return string
-     */
-    public function getTitleLv()
-    {
-        return $this->title_lv;
-    }
-
-    /**
-     * Returns the value of field title_cz
-     *
-     * @return string
-     */
-    public function getTitleCz()
-    {
-        return $this->title_cz;
-    }
 
     /**
      * Independent Column Mapping.
@@ -473,22 +280,10 @@ class Regions extends \Phalcon\Mvc\Model
     public function columnMap()
     {
         return array(
-            'region_id' => 'region_id', 
-            'country_id' => 'country_id', 
-            'title_ru' => 'title_ru', 
-            'title_ua' => 'title_ua', 
-            'title_be' => 'title_be', 
-            'title_en' => 'title_en', 
-            'title_es' => 'title_es', 
-            'title_pt' => 'title_pt', 
-            'title_de' => 'title_de', 
-            'title_fr' => 'title_fr', 
-            'title_it' => 'title_it', 
-            'title_pl' => 'title_pl', 
-            'title_ja' => 'title_ja', 
-            'title_lt' => 'title_lt', 
-            'title_lv' => 'title_lv', 
-            'title_cz' => 'title_cz'
+            'country_id' => 'country_id',
+            'region_id' => 'region_id',
+            'title_ru' => 'title_ru',
+            'title_en' => 'title_en',
         );
     }
 

@@ -43,7 +43,7 @@ class ViewsController extends BaseController
             ->addJs('js/jquery.cookie.js')
             ->addJs('js/respond.min.js')
             ->addJs('js/ohsnap.js')
-            ->addJs('js/common.js');
+            ->addJs('js/scripts.js');
     }
 
     protected function notify($message = '', $type = 'common')

@@ -205,11 +205,12 @@ function cookie(name, value)
     }
 }
 
-function showRegionSelector(regionId){
+function showRegionSelector(countryId, regionId){
     var container = $('.region-selector');
 
     $.post('/ajaj/cities/showRegionSelector',
         {
+            countryId: countryId,
             regionId: regionId
         },
         function(response){
@@ -217,13 +218,14 @@ function showRegionSelector(regionId){
         }, 'json');
 }
 
-function showCitySelector(regionId, cityId){
+function showCitySelector(countryId, regionId, cityId){
     var container = $('.region-selector');
 
     container.find('.form-row:last-child').remove();
 
     $.post('/ajaj/cities/showCitySelector',
         {
+            countryId: countryId,
             regionId: regionId,
             cityId: cityId
         },

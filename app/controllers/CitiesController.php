@@ -18,7 +18,7 @@ class CitiesController extends ViewsController
 
         $builder = $this->modelsManager->createBuilder()
             ->from('Cities')
-            ->orderBy('title_ru ASC');
+            ->orderBy('city_id DESC');
 
         if($query = $this->request->get('q')){
             $builder->where("title_ru LIKE '%{$query}%'");
@@ -27,7 +27,7 @@ class CitiesController extends ViewsController
         $paginator = new PAdapter(
             array(
                 "builder" => $builder,
-                "limit"=> 20,
+                "limit"=> 25,
                 "page" => $this->request->get('page')
             )
         );
@@ -39,6 +39,21 @@ class CitiesController extends ViewsController
 
         $this->view->setVar('grid', $grid);
     }
+
+    public function createItemAction()
+    {
+        try{
+            $model = new Cities();
+
+            $this->view->setVar('row', $model);
+
+            $this->view->pick("cities/editItem");
+
+        } catch (\Exception $e){
+            $this->e404();
+        }
+    }
+
 
     public function showItemAction($id)
     {
@@ -83,8 +98,14 @@ class CitiesController extends ViewsController
         $async = new AsyncRequest();
 
         try{
+            $countryId = $this->request->getPost('countryId');
             $regionId = $this->request->getPost('regionId');
 
+            if(empty($countryId) && !empty($regionId)){
+                $model = new Regions();
+                $row = $model->query()->where('region_id='.$regionId)->limit(1)->execute()->getFirst();
+                $countryId = $row->getCountryId();
+            }
             if(empty($regionId) && !empty($cityId)){
                 $model = new Cities();
                 $row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst();
@@ -92,6 +113,7 @@ class CitiesController extends ViewsController
             }
 
             $async->data['html'] = $async->getView('cities/regionSelector', array(
+                'countryId'=>$countryId,
                 'regionId'=>$regionId,
             ));
 
@@ -107,16 +129,27 @@ class CitiesController extends ViewsController
         $async = new AsyncRequest();
 
         try{
+            $countryId = $this->request->getPost('countryId');
             $regionId = $this->request->getPost('regionId');
             $cityId = $this->request->getPost('cityId');
 
+            if(empty($countryId) && !empty($regionId)){
+                $model = new Regions();
+                if($row = $model->query()->where('region_id='.$regionId)->limit(1)->execute()->getFirst()) {
+                    $countryId = $row->getCountryId();
+                }
+            }
+
             if(empty($regionId) && !empty($cityId)){
                 $model = new Cities();
-                $row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst();
-                $regionId = $row->getRegionId();
+                if($row = $model->query()->where('city_id='.$cityId)->limit(1)->execute()->getFirst()) {
+                    $countryId = $row->getCountryId();
+                    $regionId = $row->getRegionId();
+                }
             }
 
             $async->data['html'] = $async->getView('cities/citySelector', array(
+                'countryId'=>$countryId,
                 'regionId'=>$regionId,
                 'cityId'=>$cityId,
             ));
@@ -153,8 +186,10 @@ class CitiesController extends ViewsController
 
             if(!$row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
-            $row->setTitleRu($this->request->getPost('name'));
+            $row->setCountryId($this->request->getPost('country_id'));
             $row->setRegionId($this->request->getPost('region_id'));
+            $row->setTitleRu($this->request->getPost('title_ru'));
+            $row->setTitleEn($this->request->getPost('title_en'));
 
             if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
 

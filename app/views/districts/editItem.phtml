@@ -1,5 +1,5 @@
 <div class="edit-form form">
-    <h1><?= $row->getTitleRu() ?></h1>
+    <h1><?= $row->getName() ?></h1>
     <div class="common-grid">
         <?= $this->tag->form(array($this->router->getCurrentPath().'/save', "method" => "post")) ?>
         <div class="row x2">
@@ -7,14 +7,20 @@
                 <div class="form-row">
                     <div class="form-title">Название</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("title_ru", 'class'=>'w100', 'value'=>$row->getTitleRu())) ?>
+                        <?= $this->tag->textField(array("name", 'class'=>'w100', 'value'=>$row->getName())) ?>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-title">Название на английском</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("title_en", 'class'=>'w100', 'value'=>$row->getTitleEn())) ?>
+                        <?= $this->tag->textField(array("name_en", 'class'=>'w100', 'value'=>$row->getNameEn())) ?>
                     </div>
+                </div>
+                <div class="region-selector">
+                    <div class="form-row"><i class="fa fa-spinner" style="display: inline-block"></i> подождите...</div>
+                    <script language="javascript">
+                        $(document).ready(function(){ showCitySelector(0, 0, <? echo (($cityId = $row->getCityId()) ? $cityId : 0) ?>); });
+                    </script>
                 </div>
                 <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
             </div>

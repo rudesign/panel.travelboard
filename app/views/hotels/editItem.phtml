@@ -13,7 +13,7 @@
                 <div class="region-selector">
                     <div class="form-row"><i class="fa fa-spinner" style="display: inline-block"></i> подождите...</div>
                     <script language="javascript">
-                        $(document).ready(function(){ showCitySelector(0, <? echo $row->getHotelId() ? $row->getCityId() : 0; ?>); });
+                        $(document).ready(function(){ showCitySelector(<? echo $row->getHotelId() ? ((($countryId = $row->getCountryId()) ? $countryId : 0).', '.(($regionId = $row->getRegionId()) ? $regionId : 0).', '.(($cityId = $row->getCityId()) ? $cityId : 0)) : '0,0,0'; ?>); });
                     </script>
                 </div>
                 <div class="form-row">
@@ -125,7 +125,7 @@
                         $prop = array('free_internet', 'value' => 1);
                         if($row->getFreeInternet()) $prop['checked'] = 'checked';
                         echo $this->tag->checkField($prop) ;
-                        ?> <label>точки бесплатного доступа в Интернет</label>
+                        ?> <label>есть точки бесплатного доступа в Интернет</label>
                     </div>
                 </div>
                 <div class="form-row">

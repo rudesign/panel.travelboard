@@ -1,0 +1,15 @@
+<h1>Районы городов</h1>
+<div class="edit-grid">
+    <?= $this->partial('editGridSearchForm') ?>
+
+    <?php if(!empty($grid)): ?>
+        <div class="scope">
+            <?php
+                foreach($grid->items as $row){
+                    $this->partial('districts/gridItem');
+                }
+            ?>
+        </div>
+        <?= $this->partial('paginator') ?>
+    <?php endif; ?>
+</div>

@@ -21,13 +21,14 @@ class HotelsController extends ViewsController
             ->orderBy('hotel_id DESC');
 
         if($query = $this->request->get('q')) $builder->where("name LIKE '%{$query}%'");
-        if($query = $this->request->get('r')) $builder->where("region_id = '{$query}'");
-        if($query = $this->request->get('c')) $builder->where("city_id = '{$query}'");
+        if($query = $this->request->get('co')) $builder->where("country_id = '{$query}'");
+        if($query = $this->request->get('re')) $builder->where("region_id = '{$query}'");
+        if($query = $this->request->get('ci')) $builder->where("city_id = '{$query}'");
 
         $paginator = new PAdapter(
             array(
                 "builder" => $builder,
-                "limit"=> 20,
+                "limit"=> 25,
                 "page" => $this->request->get('page')
             )
         );
@@ -108,6 +109,7 @@ class HotelsController extends ViewsController
             $row->setName($this->request->getPost('name'));
             $row->setAddress($this->request->getPost('address'));
             $row->setAddressOrig($this->request->getPost('address_orig'));
+            $row->setCountryId(($countryId = $this->request->getPost('country_id')) ? $countryId : 0);
             $row->setRegionId(($regionId = $this->request->getPost('region_id')) ? $regionId : 0);
             $row->setCityId(($cityId = $this->request->getPost('city_id')) ? $cityId : 0);
             $row->setLat($this->request->getPost('lat'));

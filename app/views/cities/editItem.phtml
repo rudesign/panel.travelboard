@@ -7,13 +7,19 @@
                 <div class="form-row">
                     <div class="form-title">Название</div>
                     <div class="input">
-                        <?= $this->tag->textField(array("name", 'class'=>'w100', 'value'=>$row->getTitleRu())) ?>
+                        <?= $this->tag->textField(array("title_ru", 'class'=>'w100', 'value'=>$row->getTitleRu())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Название на английском</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("title_en", 'class'=>'w100', 'value'=>$row->getTitleEn())) ?>
                     </div>
                 </div>
                 <div class="region-selector">
                     <div class="form-row"><i class="fa fa-spinner" style="display: inline-block"></i> подождите...</div>
                     <script language="javascript">
-                        $(document).ready(function(){ showRegionSelector(<?= $row->getRegionId() ?>); });
+                        $(document).ready(function(){ showRegionSelector(<?= (($countryId = $row->getCountryId()) ? $countryId : 0).', '.(($regionId = $row->getRegionId()) ? $regionId : 0) ?>); });
                     </script>
                 </div>
                 <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>

@@ -1,20 +1,39 @@
 <div class="form-row">
+    <div class="form-title">Страна</div>
+    <div class="input">
+        <?=
+        $this->tag->select(array(
+            'country_id',
+            Countries::find(array('', "order" => "title_ru ASC")),
+            'using' => array('country_id', 'title_ru'),
+            'useEmpty' => true,
+            'emptyText' => 'выберите...',
+            'emptyValue' => 0,
+            'onChange' => 'showCitySelector($(this).val(), 0, 0)',
+            'value'=>$countryId
+        ))
+        ?>
+    </div>
+</div>
+<?php if(!empty($countryId) || !empty($regionId)): ?>
+<div class="form-row">
     <div class="form-title">Регион</div>
     <div class="input">
         <?=
             $this->tag->select(array(
                 'region_id',
-                Regions::find(array("country_id = 1", "order" => "title_ru ASC")),
+                Regions::find(array("country_id = ".$countryId, "order" => "title_ru ASC")),
                 'using' => array('region_id', 'title_ru'),
                 'useEmpty' => true,
                 'emptyText' => 'выберите...',
                 'emptyValue' => 0,
-                'onChange' => 'showCitySelector($(this).val(), 0)',
+                'onChange' => 'showCitySelector(0, $(this).val(), 0)',
                 'value'=>$regionId
             ))
         ?>
     </div>
 </div>
+<?php endif; ?>
 <?php if(!empty($regionId) || !empty($cityId)): ?>
 <div class="form-row">
     <div class="form-title">Город</div>

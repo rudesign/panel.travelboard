@@ -2,7 +2,7 @@
 
 use Phalcon\Paginator\Adapter\QueryBuilder as PAdapter;
 
-class CountriesController extends ViewsController
+class DistrictsController extends ViewsController
 {
     public function initialize(){
         parent::initialize();
@@ -17,17 +17,17 @@ class CountriesController extends ViewsController
         //$this->notify('Another message here');
 
         $builder = $this->modelsManager->createBuilder()
-            ->from('Countries')
-            ->orderBy('title_ru ASC');
+            ->from('Districts')
+            ->orderBy('district_id DESC');
 
         if($query = $this->request->get('q')){
-            $builder->where("title_ru LIKE '%{$query}%'");
+            $builder->where("name LIKE '%{$query}%'");
         }
 
         $paginator = new PAdapter(
             array(
                 "builder" => $builder,
-                "limit"=> 20,
+                "limit"=> 25,
                 "page" => $this->request->get('page')
             )
         );
@@ -40,18 +40,33 @@ class CountriesController extends ViewsController
         $this->view->setVar('grid', $grid);
     }
 
+    public function createItemAction()
+    {
+        try{
+            $model = new Districts();
+
+            $this->view->setVar('row', $model);
+
+            $this->view->pick("districts/editItem");
+
+        } catch (\Exception $e){
+            $this->e404();
+        }
+    }
+
+
     public function showItemAction($id)
     {
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Districts();
 
-            $row = $model->query()->where('id='.$id)->limit(1)->execute()->getFirst();
+            $row = $model->query()->where('district_id='.$id)->limit(1)->execute()->getFirst();
 
             if(!count($row)) throw new \Exception;
 
-            $this->setTitle($row->getTitleRu());
+            $this->setTitle($row->getName());
 
             $this->view->setVar('row', $row);
 
@@ -65,13 +80,11 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Districts();
 
-            $row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst();
+            if(!$row = $model->query()->where('district_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
-            if(!count($row)) throw new \Exception;
-
-            $this->setTitle($row->getTitleRu());
+            $this->setTitle($row->getName());
 
             $this->view->setVar('row', $row);
 
@@ -87,12 +100,13 @@ class CountriesController extends ViewsController
         try{
             if(empty($id)) throw new \Exception;
 
-            $model = new Countries();
+            $model = new Districts();
 
-            if(!$row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            if(!$row = $model->query()->where('district_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
 
-            $row->setTitleRu($this->request->getPost('title_ru'));
-            $row->setTitleEn($this->request->getPost('title_en'));
+            $row->setCityId($this->request->getPost('city_id'));
+            $row->setName($this->request->getPost('name'));
+            $row->setNameEn($this->request->getPost('name_en'));
 
             if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
 

@@ -9,6 +9,8 @@ class Hotels extends \Phalcon\Mvc\Model
      */
     protected $hotel_id;
 
+    protected $country_id;
+
     protected $region_id;
 
     protected $city_id;
@@ -85,6 +87,13 @@ class Hotels extends \Phalcon\Mvc\Model
     public function setHotelId($hotel_id)
     {
         $this->hotel_id = $hotel_id;
+
+        return $this;
+    }
+
+    public function setCountryId($country_id)
+    {
+        $this->country_id = $country_id;
 
         return $this;
     }
@@ -358,6 +367,11 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->hotel_id;
     }
 
+    public function getCountryId()
+    {
+        return $this->country_id;
+    }
+
     public function getRegionId()
     {
         return $this->region_id;
@@ -555,6 +569,7 @@ class Hotels extends \Phalcon\Mvc\Model
     {
         return array(
             'hotel_id' => 'hotel_id', 
+            'country_id' => 'country_id',
             'region_id' => 'region_id',
             'city_id' => 'city_id',
             'name' => 'name',
