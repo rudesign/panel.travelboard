@@ -40,6 +40,21 @@ class CountriesController extends ViewsController
         $this->view->setVar('grid', $grid);
     }
 
+    public function createItemAction()
+    {
+        try{
+            $model = new Countries();
+
+            $this->view->setVar('row', $model);
+
+            $this->view->pick("countries/editItem");
+
+        } catch (\Exception $e){
+            $this->e404();
+        }
+    }
+
+
     public function showItemAction($id)
     {
         try{

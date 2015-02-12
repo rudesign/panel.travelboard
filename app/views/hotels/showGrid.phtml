@@ -1,4 +1,10 @@
-<h1>Отели</h1>
+<h1>Отели
+    <?=
+    $this->tag->linkTo($this->url->get(array(
+        "for" => "gridItemCreateForm",
+        "controller" => 'hotels')), '<i class="fa fa-plus-circle"></i>', false)
+    ?>
+</h1>
 <div class="edit-grid">
     <?= $this->partial('hotels/editGridSearchForm') ?>
 

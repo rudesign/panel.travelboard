@@ -2,7 +2,7 @@
     <div class="row x6">
         <?php if(!empty($totalCountries)): ?>
         <div class="c1 item">
-            <a href="<?= $this->url->get('show/countries') ?>">
+            <a href="<?= $this->url->get('countries/show') ?>">
                 <div class="bg-blue">
                     <div class="wrapper">
                         Страны
@@ -14,7 +14,7 @@
         <?php endif; ?>
         <?php if(!empty($totalCities)): ?>
             <div class="c1 item">
-                <a href="<?= $this->url->get('show/cities') ?>">
+                <a href="<?= $this->url->get('cities/show') ?>">
                     <div class="bg-blue">
                         <div class="wrapper">
                             Города
@@ -26,7 +26,7 @@
         <?php endif; ?>
         <?php if(!empty($totalHotels)): ?>
             <div class="c1 item">
-                <a href="<?= $this->url->get('show/hotels') ?>">
+                <a href="<?= $this->url->get('hotels/show') ?>">
                     <div class="bg-blue">
                         <div class="wrapper">
                             Отели

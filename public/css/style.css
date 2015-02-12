@@ -584,6 +584,9 @@ h1 {
   font-size: 32px;
   font-weight: 300;
   line-height: 1.2em; }
+  h1 i.fa {
+    font-size: 0.75em;
+    margin-top: 0.25em; }
 
 .bg-blue {
   background-color: #00b4f7;

@@ -1,4 +1,10 @@
-<h1>Районы городов</h1>
+<h1>Районы городов
+    <?=
+        $this->tag->linkTo($this->url->get(array(
+        "for" => "gridItemCreateForm",
+        "controller" => 'districts')), '<i class="fa fa-plus-circle"></i>', false)
+    ?>
+</h1>
 <div class="edit-grid">
     <?= $this->partial('editGridSearchForm') ?>
 

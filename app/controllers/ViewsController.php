@@ -77,6 +77,7 @@ class ViewsController extends BaseController
     {
         $this->view->setVar('notify', $this->notify);
         $this->view->setVar('metaTags', $this->metaTags);
+        $this->view->setVar('pathSegments', $this->router->getPathSegments());
     }
 
     protected function e404(){

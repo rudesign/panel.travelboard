@@ -85,6 +85,12 @@ h1{
     weight: 300;
   }
   line-height: 1.2em;
+  i{
+    &.fa{
+      font-size: 0.75em;
+      margin-top: 0.25em;
+    }
+  }
 }
 
 .bg{

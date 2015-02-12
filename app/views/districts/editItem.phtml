@@ -1,5 +1,5 @@
 <div class="edit-form form">
-    <h1><?= $row->getName() ?></h1>
+    <h1><?= ($name = $row->getName()) ? $name : 'Создать новый район города'  ?></h1>
     <div class="common-grid">
         <?= $this->tag->form(array($this->router->getCurrentPath().'/save', "method" => "post")) ?>
         <div class="row x2">

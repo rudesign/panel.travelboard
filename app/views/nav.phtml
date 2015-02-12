@@ -1,15 +1,17 @@
 <ul class="nav">
     <li>
-        <?= $this->tag->linkTo('show/countries', 'Страны') ?>
+        <?= $this->tag->linkTo(array('countries/show', 'Страны', 'class'=>(reset($pathSegments) == 'countries') ? 'active' : null)) ?>
     </li>
-    <li>
+    <li<?= array_search(reset($pathSegments), array('districts')) !== false ? ' class="active"' : '' ?>>
         <i></i>
-        <?= $this->tag->linkTo('show/cities', 'Города') ?>
+        <?= $this->tag->linkTo(array('cities/show', 'Города', 'class'=>(reset($pathSegments) == 'cities') ? 'active' : null)) ?>
         <ul>
-            <li><?= $this->tag->linkTo('show/districts', 'Районы') ?></li>
+            <li>
+                <?= $this->tag->linkTo(array('districts/show', 'Районы', 'class'=>(reset($pathSegments) == 'districts') ? 'active' : null)) ?>
+            </li>
         </ul>
     </li>
     <li>
-        <?= $this->tag->linkTo('show/hotels', 'Отели') ?>
+        <?= $this->tag->linkTo(array('hotels/show', 'Отели', 'class'=>(reset($pathSegments) == 'hotels') ? 'active' : null)) ?>
     </li>
 </ul>
