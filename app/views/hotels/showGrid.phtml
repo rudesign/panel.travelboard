@@ -11,6 +11,8 @@
     <?php if(!empty($grid)): ?>
         <div class="scope">
             <?php
+                $this->partial('deleteConfirmationControls');
+
                 foreach($grid->items as $row){
 
                     $region = array();

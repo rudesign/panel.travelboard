@@ -259,10 +259,49 @@ h1{
   .scope{
     margin-bottom: 20px;
   }
+  .del-confirm-src{
+    display: none;
+  }
   .items{
-    margin-bottom: 15px;
+    @extend .clearfix;
+
     &:last-child{
       margin-bottom: 0;
+    }
+    .cols{
+      display: table-cell;
+      height: 35px;
+      padding: 0 10px;
+      vertical-align: middle;
+      &.c1{
+        @extend .small;
+
+        position: relative;
+        width: 60px;
+        text-align: center;
+        &:hover{
+          background: #da4453;
+          color: #fff;
+        }
+        .del-confirm{
+          position: absolute;
+          z-index: 10;
+          top: 0;
+          left: -3em;
+          width: 3em;
+          height: 100%;
+          &:hover{
+            background: $black;
+            color: #fff;
+          }
+          a{
+            display: block;
+            width: 100%;
+            padding: 10px 0;
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
 }

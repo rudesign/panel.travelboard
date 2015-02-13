@@ -148,5 +148,27 @@ class HotelsController extends ViewsController
 
         $async->submitJSON();
     }
+
+    public function deleteAction($id = 0)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception('No id');
+
+            $model = new Hotels();
+
+            if(!empty($id)) {
+                if (!$row = $model->query()->where('hotel_id=' . $id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            }
+
+            if($row->delete()){ $async->setOKMessage('Удалено'); }else throw new \Exception('Ошибка при удалении');
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
 }
 

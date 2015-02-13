@@ -21,4 +21,20 @@ class IndexController extends ViewsController
         $this->view->setVar('totalCities', $cities->getCount());
         $this->view->setVar('totalHotels', $hotels->getCount());
     }
+
+    public function deleteItemAction($id)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception('No id');
+
+            throw new \Exception($_SERVER['HTTP_REFERER']);
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
 }

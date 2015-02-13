@@ -59,4 +59,14 @@ $group->add(
     )
 );
 
+// delete item
+$group->add(
+    '/([a-zA-Z0-9]+)/delete/([0-9]+)',
+    array(
+        'controller' => 1,
+        'action' => 'delete',
+        'id'     => 2,
+    )
+);
+
 $router->mount($group);

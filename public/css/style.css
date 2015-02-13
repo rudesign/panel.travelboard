@@ -35,18 +35,18 @@ a, object, embed {
 input::-moz-focus-inner {
   border: 0; }
 
-.clearfix:after, .common-grid .row:after {
+.clearfix:after, .common-grid .row:after, .edit-grid .items:after {
   visibility: hidden;
   display: block;
   content: "";
   clear: both;
   height: 0; }
 
-* html .clearfix, * html .common-grid .row, .common-grid * html .row {
+* html .clearfix, * html .common-grid .row, .common-grid * html .row, * html .edit-grid .items, .edit-grid * html .items {
   zoom: 1; }
 
 /* IE6 */
-*:first-child + html .clearfix, *:first-child + html .common-grid .row, .common-grid *:first-child + html .row {
+*:first-child + html .clearfix, *:first-child + html .common-grid .row, .common-grid *:first-child + html .row, *:first-child + html .edit-grid .items, .edit-grid *:first-child + html .items {
   zoom: 1; }
 
 /* IE7 */
@@ -516,7 +516,7 @@ label {
       .common-grid .row.x6 > .c5:last-child, .common-grid .row.x6 > .c5:nth-child(1n) {
         margin-right: 0; } }
 
-.small {
+.small, .edit-grid .items .cols.c1 {
   font-size: 12px;
   line-height: 1.3em; }
 
@@ -704,10 +704,37 @@ h1 {
         color: #333; }
 .edit-grid .scope {
   margin-bottom: 20px; }
-.edit-grid .items {
-  margin-bottom: 15px; }
-  .edit-grid .items:last-child {
-    margin-bottom: 0; }
+.edit-grid .del-confirm-src {
+  display: none; }
+.edit-grid .items:last-child {
+  margin-bottom: 0; }
+.edit-grid .items .cols {
+  display: table-cell;
+  height: 35px;
+  padding: 0 10px;
+  vertical-align: middle; }
+  .edit-grid .items .cols.c1 {
+    position: relative;
+    width: 60px;
+    text-align: center; }
+    .edit-grid .items .cols.c1:hover {
+      background: #da4453;
+      color: #fff; }
+    .edit-grid .items .cols.c1 .del-confirm {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: -3em;
+      width: 3em;
+      height: 100%; }
+      .edit-grid .items .cols.c1 .del-confirm:hover {
+        background: #333;
+        color: #fff; }
+      .edit-grid .items .cols.c1 .del-confirm a {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        text-decoration: none; }
 
 .edit-form textarea {
   height: 20em; }

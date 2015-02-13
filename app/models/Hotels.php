@@ -86,21 +86,21 @@ class Hotels extends \Phalcon\Mvc\Model
      */
     public function setHotelId($hotel_id)
     {
-        $this->hotel_id = $hotel_id;
+        $this->hotel_id = (int) $hotel_id;
 
         return $this;
     }
 
     public function setCountryId($country_id)
     {
-        $this->country_id = $country_id;
+        $this->country_id = (int) $country_id;
 
         return $this;
     }
 
     public function setRegionId($region_id)
     {
-        $this->region_id = $region_id;
+        $this->region_id = (int) $region_id;
 
         return $this;
     }
@@ -113,7 +113,7 @@ class Hotels extends \Phalcon\Mvc\Model
      */
     public function setCityId($city_id)
     {
-        $this->city_id = $city_id;
+        $this->city_id = (int) $city_id;
 
         return $this;
     }
@@ -140,7 +140,7 @@ class Hotels extends \Phalcon\Mvc\Model
 
     public function setRating($rating)
     {
-        $this->rating = $rating;
+        $this->rating = (int) $rating;
 
         return $this;
     }
@@ -377,11 +377,6 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->region_id;
     }
 
-    /**
-     * Returns the value of field city_id
-     *
-     * @return integer
-     */
     public function getCityId()
     {
         return $this->city_id;
@@ -407,11 +402,6 @@ class Hotels extends \Phalcon\Mvc\Model
         return $this->rating;
     }
 
-    /**
-     * Returns the value of field address
-     *
-     * @return string
-     */
     public function getAddress()
     {
         return $this->address;
