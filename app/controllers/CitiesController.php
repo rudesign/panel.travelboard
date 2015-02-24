@@ -175,23 +175,51 @@ class CitiesController extends ViewsController
         $async->submitJSON();
     }
 
-    public function saveItemAction($id)
+    public function saveItemAction($id = 0)
     {
         $async = new AsyncRequest();
 
         try{
-            if(empty($id)) throw new \Exception;
+            //if(empty($id)) throw new \Exception;
 
             $model = new Cities();
 
-            if(!$row = $model->query()->where('city_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            if(!empty($id)) {
+                if (!$row = $model->query()->where('city_id=' . $id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            }else $row = $model;
 
             $row->setCountryId($this->request->getPost('country_id'));
             $row->setRegionId($this->request->getPost('region_id'));
             $row->setTitleRu($this->request->getPost('title_ru'));
             $row->setTitleEn($this->request->getPost('title_en'));
 
-            if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
+            if(!empty($id)) {
+                if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при редактировании записи');
+            }else{
+                if($row->create()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при создании записи');
+            }
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
+
+    public function deleteAction($id = 0)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception('No id');
+
+            $model = new Cities();
+
+            if(!empty($id)) {
+                if (!$row = $model->query()->where('city_id=' . $id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            }
+
+            if($row->delete()){ $async->setOKMessage('Удалено'); }else throw new \Exception('Ошибка при удалении');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());

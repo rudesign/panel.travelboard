@@ -18,7 +18,7 @@ class CountriesController extends ViewsController
 
         $builder = $this->modelsManager->createBuilder()
             ->from('Countries')
-            ->orderBy('title_ru ASC');
+            ->orderBy('country_id DESC');
 
         if($query = $this->request->get('q')){
             $builder->where("title_ru LIKE '%{$query}%'");
@@ -95,21 +95,49 @@ class CountriesController extends ViewsController
         }
     }
 
-    public function saveItemAction($id)
+    public function saveItemAction($id = 0)
     {
         $async = new AsyncRequest();
 
         try{
-            if(empty($id)) throw new \Exception;
+            //if(empty($id)) throw new \Exception;
 
             $model = new Countries();
 
-            if(!$row = $model->query()->where('country_id='.$id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            if(!empty($id)) {
+                if (!$row = $model->query()->where('country_id=' . $id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            }else $row = $model;
 
             $row->setTitleRu($this->request->getPost('title_ru'));
             $row->setTitleEn($this->request->getPost('title_en'));
 
-            if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Возникла ошибка');
+            if(!empty($id)) {
+                if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при редактировании записи');
+            }else{
+                if($row->create()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при создании записи');
+            }
+
+        } catch (\Exception $e){
+            $async->setMessage($e->getMessage());
+        }
+
+        $async->submitJSON();
+    }
+
+    public function deleteAction($id = 0)
+    {
+        $async = new AsyncRequest();
+
+        try{
+            if(empty($id)) throw new \Exception('No id');
+
+            $model = new Countries();
+
+            if(!empty($id)) {
+                if (!$row = $model->query()->where('country_id=' . $id)->limit(1)->execute()->getFirst()) throw new \Exception('Запись не найдена');
+            }
+
+            if($row->delete()){ $async->setOKMessage('Удалено'); }else throw new \Exception('Ошибка при удалении');
 
         } catch (\Exception $e){
             $async->setMessage($e->getMessage());

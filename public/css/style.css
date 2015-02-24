@@ -727,9 +727,6 @@ h1 {
       left: -3em;
       width: 3em;
       height: 100%; }
-      .edit-grid .items .cols.c1 .del-confirm:hover {
-        background: #333;
-        color: #fff; }
       .edit-grid .items .cols.c1 .del-confirm a {
         display: block;
         width: 100%;

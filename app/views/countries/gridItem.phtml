@@ -1,7 +1,10 @@
-<div class="items">
+<div id="row<?= $row->getCountryId() ?>" class="items">
+    <div class="cols c1"><?= $row->getCountryId() ?></div>
+    <div class="cols c2">
     <?= $this->tag->linkTo($this->url->get(array(
         "for" => "gridItemForm",
         "controller" => 'countries',
         "id" => $row->getCountryId(),
     )), $row->getTitleRu(), false) ?>
+    </div>
 </div>
