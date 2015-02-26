@@ -33,10 +33,11 @@ class Router extends \Phalcon\Mvc\Router{
     public function getCurrentPath(){
         try{
             if(!$path = $this->getRewriteUri()) throw new \Exception;
-            $path = array_filter(explode('/', $path));
-            $path = implode('/', $path);
+            $segments = array_filter(explode('/', $path));
 
-            return $path;
+            $url= $this->constructUrl($segments);
+
+            return $url;
         }catch (\Exception $e){
             return '';
         }
@@ -44,16 +45,22 @@ class Router extends \Phalcon\Mvc\Router{
 
     /**
      * Constructs url from arguments and returns result as string
-     * @param string $path
-     * @param array $query
+     * @param string|array $path
+     * @param array $args
+     * @param bool $local
      * @return string
      */
-    public function getUrl($path = '/', $query = array()){
+    public function constructUrl($path = null, $args = array(), $external = false){
 
         if(is_array($path)) $path = implode('/', $path);
 
-        if($queryStr = http_build_query($query)) $path .= '?'.$queryStr;
+        if(is_bool($args)) {
+            $external = $args;
+            $args = array();
+        }
 
-        return $path;
+        $url = $this->getDI()->get('url')->get($path, $args, $external);
+
+        return $url;
     }
 }

@@ -9,7 +9,7 @@
 
         if($grid->before > 1) $query['page'] = $grid->before; else unset($query['page']);
 
-        $url = $this->router->getUrl($this->router->getCurrentPath(), $query);
+        $url = $this->router->constructUrl($this->router->getCurrentPath(), $query);
 
         echo '<li>'.$this->tag->linkTo($url, 'Назад').'</li>';
     }
@@ -18,7 +18,7 @@
 
         $query['page'] = $grid->next;
 
-        $url = $this->router->getUrl($this->router->getCurrentPath(), $query);
+        $url = $this->router->constructUrl($this->router->getCurrentPath(), $query);
 
         echo '<li>'.$this->tag->linkTo($url, 'Вперёд').'</li>';
     }

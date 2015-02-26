@@ -1,7 +1,10 @@
-<div class="items">
-    <?= $this->tag->linkTo($this->url->get(array(
-        "for" => "gridItemForm",
-        "controller" => 'districts',
-        "id" => $row->getDistrictId(),
-    )), $row->getName(), false) ?>, <?= $row->cities->getTitleRu() ?>
+<div id="row<?= $row->getDistrictId() ?>" class="items">
+    <div class="cols c1"><?= $row->getDistrictId() ?></div>
+    <div class="cols c2">
+        <?= $this->tag->linkTo($this->url->get(array(
+            "for" => "gridItemForm",
+            "controller" => 'districts',
+            "id" => $row->getDistrictId(),
+        )), $row->getName().', '.($row->cities ? $row->cities->getTitleRu() : 'undefined city'), false) ?>
+    </div>
 </div>

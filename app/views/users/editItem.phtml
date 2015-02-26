@@ -1,0 +1,36 @@
+<div class="edit-form form">
+    <h1><?= ($name = $row->getName()) ? $name : 'Создать нового пользователя'  ?></h1>
+    <div class="common-grid">
+        <?= $this->tag->form(array($this->router->getCurrentPath().'/save', "method" => "post")) ?>
+        <div class="row x2">
+            <div class="c1">
+                <div class="form-row">
+                    <div class="form-title">Имя</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("name", 'class'=>'w100', 'value'=>$row->getName())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Город</div>
+                    <div class="input">
+                        <?= $this->tag->textField(array("city", 'class'=>'w100', 'value'=>$row->getCity())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">E-mail</div>
+                    <div class="input">
+                        <?= $this->tag->emailField(array("email", 'class'=>'w100', 'value'=>$row->getLogin())) ?>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-title">Пароль (оставьте незаполненным если не меняется)</div>
+                    <div class="input">
+                        <?= $this->tag->passwordField(array("password", 'class'=>'w100', 'value'=>'', 'autocomplete'=>'off')) ?>
+                    </div>
+                </div>
+                <?= $this->tag->submitButton(array('Сохранить', 'onclick'=>'return saveItem();', 'class'=>'buttons', 'optional'=>'Подождите...')) ?>
+            </div>
+        </div>
+        <?= $this->tag->endForm() ?>
+    </div>
+</div>

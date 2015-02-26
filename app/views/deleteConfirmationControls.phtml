@@ -1,5 +1,5 @@
 <div class="del-confirm-src">
     <div class="del-confirm">
-        <?= $this->tag->linkTo(array($this->router->getUrl(array(reset($pathSegments), 'delete')), 'class'=>'fa fa-remove', 'alt'=>'Удалить')) ?>
+        <?= $this->tag->linkTo(array($this->router->constructUrl(array(reset($pathSegments), 'delete'), false), 'class'=>'fa fa-remove', 'alt'=>'Удалить')) ?>
     </div>
 </div>

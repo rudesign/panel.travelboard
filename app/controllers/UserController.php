@@ -35,11 +35,11 @@ class UserController extends ViewsController
 
             // Validate data
             $validation = new SignupValidation();
-
             $messages = $validation->validate($_POST);
 
+            // If something whong
             if (count($messages)) {
-                // Get first message
+                // Get the first message
                 $messages->rewind();
 
                 $async->setMessage($messages->current()->getMessage());
@@ -48,12 +48,11 @@ class UserController extends ViewsController
                     // Get User model
                     $user = new Users();
 
-                    // Change User model data
                     $user->setName($this->request->getPost('name'));
                     $user->setLogin($this->request->getPost('email'));
                     $user->setPassword($this->security->hash($this->request->getPost('password')));
 
-                    // Store
+                    // Create a new user data & force login
                     if(!$user->signup()) throw new Exception('Ошибка при создании пользователя');
 
                     // Clean login attempts counter

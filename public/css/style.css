@@ -75,6 +75,9 @@ input[type="checkbox"] {
   top: 0.15em;
   margin: 0; }
 
+select {
+  max-width: 100%; }
+
 label {
   margin: 0 1em 0 0.2em; }
 
@@ -116,6 +119,8 @@ label {
 
 .form .form-row {
   margin-bottom: 15px; }
+.form .extended-form-row {
+  margin-bottom: 30px; }
 .form .form-title {
   margin-bottom: 4px;
   font-size: 12px;
@@ -526,6 +531,7 @@ label {
   text-transform: uppercase; }
 
 body {
+  position: relative;
   background: #303641;
   color: #fff;
   font: 14px/1.3em "Roboto", Arial, sans-serif;
@@ -597,6 +603,22 @@ h1 {
   .bg-blue:hover {
     background-color: #1cc1ff; }
 
+.slide-up {
+  position: fixed;
+  z-index: 10;
+  width: 80px;
+  height: 100%;
+  background: url("../img/slideUp.png") -21px 50% no-repeat #464e5e;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.1s; }
+  .slide-up:hover {
+    opacity: 0.8;
+    background-position: 50% 50%; }
+  @media screen and (max-width: 800px) {
+    .slide-up {
+      width: 0; } }
+
 .header {
   background-color: #23bab5; }
   .header > .inline {
@@ -604,6 +626,8 @@ h1 {
     float: left;
     height: 50px; }
     .header > .inline.logo {
+      position: relative;
+      z-index: 11;
       width: 240px;
       background-color: #272c35; }
       .header > .inline.logo img {
@@ -630,7 +654,8 @@ h1 {
 
 .content .aside {
   position: absolute;
-  width: 240px; }
+  width: 240px;
+  z-index: 11; }
   .content .aside a {
     color: #fff;
     transition: 0.2s; }
@@ -638,19 +663,20 @@ h1 {
     display: block;
     padding: 12px 50px 12px 20px;
     text-decoration: none;
-    border-bottom: 1px solid #363d4a; }
+    border-bottom: 1px solid #3b4250; }
     .content .aside .nav a.active, .content .aside .nav a:hover {
       background-color: #23bab5;
       border-color: #23bab5; }
   .content .aside .nav > li {
-    position: relative; }
+    position: relative;
+    background-color: #303641; }
     .content .aside .nav > li > i {
       position: absolute;
       right: 0;
       z-index: 2;
       width: 40px;
       height: 42px;
-      background: url("../img/darr.png") 50% 50% no-repeat;
+      background: url("../img/darr.png") 50% 50% no-repeat #3b4250;
       cursor: pointer;
       transition: 0.2s; }
       .content .aside .nav > li > i:hover {

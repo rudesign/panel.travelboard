@@ -115,6 +115,7 @@ class CountriesController extends ViewsController
                 if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при редактировании записи');
             }else{
                 if($row->create()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при создании записи');
+                $async->setLocation($this->router->constructUrl('/countries/edit/'.$row->getCountryId()));
             }
 
         } catch (\Exception $e){
@@ -124,8 +125,8 @@ class CountriesController extends ViewsController
         $async->submitJSON();
     }
 
-    public function deleteAction($id = 0)
-    {
+    public function deleteAction($id = 0){
+
         $async = new AsyncRequest();
 
         try{

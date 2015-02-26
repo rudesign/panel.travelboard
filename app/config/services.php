@@ -27,6 +27,13 @@ $di->set('cookie',  function()
     return new Cookie();
 });
 
+// Time helper
+$di->set('time',  function()
+{
+    return new Time();
+});
+
+
 // Session
 $di->set('session', function () {
     $session = new Session(array(

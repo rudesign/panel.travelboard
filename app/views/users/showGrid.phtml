@@ -1,8 +1,8 @@
-<h1>Районы городов
+<h1>Пользователи
     <?=
-        $this->tag->linkTo($this->url->get(array(
-        "for" => "gridItemCreateForm",
-        "controller" => 'districts')), '<i class="fa fa-plus-circle"></i>', false)
+    $this->tag->linkTo($this->url->get(array(
+        "for" => 'gridItemCreateForm',
+        "controller" => 'users')), '<i class="fa fa-plus-circle"></i>', false)
     ?>
 </h1>
 <div class="edit-grid">
@@ -14,7 +14,7 @@
                 $this->partial('deleteConfirmationControls');
 
                 foreach($grid->items as $row){
-                    $this->partial('districts/gridItem');
+                    $this->partial('users/gridItem');
                 }
             ?>
         </div>

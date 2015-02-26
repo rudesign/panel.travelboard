@@ -30,6 +30,10 @@ input[type="checkbox"]{
   margin: 0;
 }
 
+select{
+  max-width: 100%;
+}
+
 label{
   margin: 0 1em 0 0.2em;
 }
@@ -81,8 +85,13 @@ label{
 }
 
 .form{
+  $paddings: 15px;
+
   .form-row{
-    margin-bottom: 15px;
+    margin-bottom: $paddings;
+  }
+  .extended-form-row{
+    margin-bottom: $paddings * 2;
   }
   .form-title{
     margin-bottom: 4px;
@@ -92,7 +101,7 @@ label{
   }
   &.login{
     .controls{
-      padding-top: 15px;
+      padding-top: $paddings;
       li{
         margin-bottom: 5px;
         &:last-child{

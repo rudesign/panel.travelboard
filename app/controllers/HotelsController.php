@@ -132,14 +132,18 @@ class HotelsController extends ViewsController
             $row->setPaymentTypes($this->request->getPost('payment_types'));
             $row->setUrlOrig($this->request->getPost('url_orig'));
             $row->setHotelIdOrig($this->request->getPost('hotel_id_orig'));
+            $row->setGalleryDownloaded($this->request->getPost('gallery_downloaded'));
             // 500 - moderated
             $row->setStatus((($this->request->getPost('status') == 500) ? 500 : 202));
-            $row->setGalleryDownloaded($this->request->getPost('gallery_downloaded'));
+            $row->setRecModified(time());
+            $row->setRecModifiedBy($this->session->get('uid'));
 
             if(!empty($id)) {
                 if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при редактировании записи');
             }else{
+                $row->setRecCreated(time());
                 if($row->create()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при создании записи');
+                $async->setLocation($this->router->constructUrl('/hotels/edit/'.$row->getHotelId()));
             }
 
         } catch (\Exception $e){

@@ -12,6 +12,10 @@ $(document).ready(function(){
     initExpandableNav();
 
     initDelConfirmations();
+
+    $('.slide-up').click(function(){
+        $('html,body').animate({scrollTop:0}, 400, 'easeOutQuint');
+    });
 });
 
 var expand = function(expandable) {
@@ -155,10 +159,9 @@ function saveItem() {
                 ohSnap(response.message, 'red');
             }else if(response.okMessage){
                 ohSnap(response.okMessage, 'green');
-            }else if(response.location){
+            }
+            if(response.location){
                 document.location.assign(response.location);
-            }else if(response.html){
-
             }
         },
         dataType:  'json'
@@ -170,6 +173,7 @@ function saveItem() {
 }
 
 function deleteItem(location, id) {
+
     var row = $('.edit-grid #row'+id);
 
     $.get(location, function(response){
@@ -178,7 +182,8 @@ function deleteItem(location, id) {
         }else if(response.okMessage){
             ohSnap(response.okMessage, 'green');
             row.slideUp('fast', commonEasing);
-        }else if(response.location){
+        }
+        if(response.location){
             document.location.assign(response.location);
         }
     }, 'json');

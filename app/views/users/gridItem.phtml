@@ -1,0 +1,10 @@
+<div id="row<?= $row->getId() ?>" class="items">
+    <div class="cols c1"><?= $row->getId() ?></div>
+    <div class="cols c2">
+    <?= $this->tag->linkTo($this->url->get(array(
+        "for" => "gridItemForm",
+        "controller" => 'users',
+        "id" => $row->getId(),
+    )), $row->getName(), false) ?>
+    </div>
+</div>

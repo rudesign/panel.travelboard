@@ -14,4 +14,7 @@
     <li>
         <?= $this->tag->linkTo(array('hotels/show', 'Отели', 'class'=>(reset($pathSegments) == 'hotels') ? 'active' : null)) ?>
     </li>
+    <li>
+        <?= $this->tag->linkTo(array('users/show', 'Пользователи', 'class'=>(reset($pathSegments) == 'users') ? 'active' : null)) ?>
+    </li>
 </ul>

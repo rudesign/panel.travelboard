@@ -2,10 +2,9 @@
 
 use Phalcon\Validation,
     Phalcon\Validation\Validator\PresenceOf,
-    Phalcon\Validation\Validator\Email,
-    Phalcon\Validation\Validator\Confirmation;
+    Phalcon\Validation\Validator\Email;
 
-class SignupValidation extends Validation{
+class NewUserValidation extends Validation{
 
     public function initialize(){
 
@@ -28,12 +27,13 @@ class SignupValidation extends Validation{
         $this->add('password', new PresenceOf(array(
             'message' => 'Укажите пароль'
         )));
+    }
 
-        $this->add('password', new Confirmation(
-            array(
-                'message'=>'Пароль и его подтверждение не совпадают',
-                'with'=>'_password',
-            )
-        ));
+    public function getMessage($messages){
+        if (count($messages)) {
+            $messages->rewind();
+
+            return $messages->current()->getMessage();
+        }else return null;
     }
 }

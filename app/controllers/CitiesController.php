@@ -197,6 +197,7 @@ class CitiesController extends ViewsController
                 if($row->update()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при редактировании записи');
             }else{
                 if($row->create()){ $async->setOKMessage('Сохранено'); }else throw new \Exception('Ошибка при создании записи');
+                $async->setLocation($this->router->constructUrl('/cities/edit/'.$row->getCityId()));
             }
 
         } catch (\Exception $e){
