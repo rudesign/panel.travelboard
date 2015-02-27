@@ -109,17 +109,25 @@ h1{
 }
 
 .slide-up{
+  display: none;
+  $width: 81px;
+  $arrowWidth: 21px;
+
   position: fixed;
   z-index: 10;
-  width: 80px;
+  width: $width;
   height: 100%;
-  background: url("../img/slideUp.png") -21px 50% no-repeat lighten($grayBlue, 10%);
+  background: url("../img/slideUp.png") -$arrowWidth 50% no-repeat lighten($grayBlue, 10%);
   opacity: 0.5;
   cursor: pointer;
-  transition: 0.1s;
   &:hover{
-    opacity: 0.8;
-    background-position: 50% 50%;
+    opacity: 1;
+    background-position: ($width - $arrowWidth) / 2 50%;
+  }
+  &.top{
+    &:hover{
+      background-position: -((($width - $arrowWidth) / 2) + $arrowWidth * 2) 50%;
+    }
   }
   @media screen and (max-width: 800px) {
     width: 0;

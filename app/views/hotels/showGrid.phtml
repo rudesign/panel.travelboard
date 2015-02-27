@@ -14,15 +14,6 @@
                 $this->partial('deleteConfirmationControls');
 
                 foreach($grid->items as $row){
-
-                    $region = array();
-                    if($row->cities) {
-                        if ($part = $row->cities->getTitleRu()) $region[] = $part;
-                        if ($part = $row->cities->getRegionRu()) $region[] = $part;
-                    }
-
-                    $region = implode(', ', $region);
-
                     $this->partial('hotels/gridItem');
                 }
             ?>

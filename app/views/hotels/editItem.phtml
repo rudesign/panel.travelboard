@@ -38,7 +38,7 @@
                 <? if($row->getLng() && $row->getLat()): ?>
                 <div class="form-row">
                     <div class="fitted">
-                        <div style="width: 450px; height: 200px;"><img src="http://static-maps.yandex.ru/1.x/?ll=<?= $row->getLng() ?>,<?= $row->getLat() ?>&size=450,200&z=13&l=map&pt=<?= $row->getLng() ?>,<?= $row->getLat() ?>,pm2lbm~37.64,55.76363" /></div>
+                        <img src="http://maps.googleapis.com/maps/api/staticmap?center=<?= $row->getLat() ?>,<?= $row->getLng() ?>&markers=color:blue|<?= $row->getLat() ?>,<?= $row->getLng() ?>&zoom=13&size=600x260&sensor=false&language=ru">
                     </div>
                 </div>
                 <? endif; ?>

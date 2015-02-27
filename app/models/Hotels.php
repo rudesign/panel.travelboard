@@ -77,6 +77,8 @@ class Hotels extends \Phalcon\Mvc\Model
 
     public function initialize()
     {
+        $this->hasOne('country_id', 'Countries', 'country_id');
+        $this->hasOne('region_id', 'Regions', 'region_id');
         $this->hasOne('city_id', 'Cities', 'city_id');
         $this->hasOne('rec_modified_by', 'Users', 'id');
     }

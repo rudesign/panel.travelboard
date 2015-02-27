@@ -5,6 +5,6 @@
         "for" => "gridItemForm",
         "controller" => 'cities',
         "id" => $row->getCityId(),
-    )), $row->getTitleRu(), false) ?>, <?= $row->getRegionRu() ?>
+    )), $row->getTitleRu(), false) ?>, <?= $row->getRegionRu()?>, <?= $row->countries->getTitleRu() ?>
     </div>
 </div>

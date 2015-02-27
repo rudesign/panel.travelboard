@@ -1,31 +1,32 @@
 var cookieExpires = 7;
 var commonEasing = 'easeOutExpo';
+var windowScrollTop, windowScrollTopLast, uncompletedScroll = 0;
 
-$(document).ready(function(){
-
+$(document).ready(function()
+{
     fixMMenuvisibility();
 
     $(window).on('resize', function(){ fixMMenuvisibility(); });
+
+    initSlideUpButton();
 
     initNotification();
 
     initExpandableNav();
 
     initDelConfirmations();
-
-    $('.slide-up').click(function(){
-        $('html,body').animate({scrollTop:0}, 400, 'easeOutQuint');
-    });
 });
 
-var expand = function(expandable) {
+var expand = function(expandable)
+{
 
     var expanded = expandable.css('display') == 'none';
 
     expandContainer(expandable, expanded);
 };
 
-function initExpandableNav() {
+function initExpandableNav()
+{
 
     var container = $('.content .aside .nav');
     var btns = container.find(' > li i');
@@ -35,6 +36,50 @@ function initExpandableNav() {
             expandNav(this);
         });
     });
+}
+
+function initSlideUpButton()
+{
+    var container = $('.slide-up');
+
+    $(window).scroll(function () {
+        windowScrollTop = $(window).scrollTop();
+
+        if(windowScrollTop || windowScrollTopLast) container.fadeIn(); else container.fadeOut();
+
+        if(windowScrollTop && windowScrollTopLast && container.hasClass('top') && !uncompletedScroll) container.removeClass('top');
+
+    });
+
+    container.on('click', function(){
+        uncompletedScroll = 1;
+
+        if((windowScrollTop == 0) && windowScrollTopLast){
+            $(this).removeClass('top');
+            $('html,body').animate({scrollTop:windowScrollTopLast}, 400, 'easeOutQuint', function(){
+                uncompletedScroll = 0;
+            });
+        }else{
+            windowScrollTopLast = windowScrollTop;
+            $(this).addClass('top');
+            $('html,body').animate({scrollTop:0}, 400, 'easeOutQuint', function(){
+                uncompletedScroll = 0;
+            });
+        }
+    });
+
+    /*
+    container.on('click', function(){
+        if((windowScrollTop == 0) && (windowScrollTopLast > 0)){
+            $(this).removeClass('top');
+            $('html,body').animate({scrollTop:windowScrollTopLast}, 400, 'easeOutQuint');
+        }else{
+            windowScrollTopLast = windowScrollTop;
+            $(this).addClass('top');
+            $('html,body').animate({scrollTop:0}, 400, 'easeOutQuint');
+        }
+    });
+    */
 }
 
 function initDelConfirmations(){

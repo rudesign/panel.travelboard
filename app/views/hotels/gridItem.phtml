@@ -7,6 +7,6 @@
             "for" => "gridItemForm",
             "controller" => 'hotels',
             "id" => $row->getHotelId(),
-        )), $row->getName(), false) ?><?php if(!empty($region)) echo ', '.$region; ?>
+        )), $row->getName(), false) ?><?php if($row->getCityId()) echo ', '.$row->cities->getTitleRu(); if($row->getRegionId()) echo ', '.$row->regions->getTitleRu(); if($row->getCountryId()) echo ', '.$row->countries->getTitleRu(); ?>
     </div>
 </div>

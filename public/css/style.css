@@ -604,17 +604,19 @@ h1 {
     background-color: #1cc1ff; }
 
 .slide-up {
+  display: none;
   position: fixed;
   z-index: 10;
-  width: 80px;
+  width: 81px;
   height: 100%;
-  background: url("../img/slideUp.png") -21px 50% no-repeat #464e5e;
+  background: url("../img/slideUp.png")-21px 50% no-repeat #464e5e;
   opacity: 0.5;
-  cursor: pointer;
-  transition: 0.1s; }
+  cursor: pointer; }
   .slide-up:hover {
-    opacity: 0.8;
-    background-position: 50% 50%; }
+    opacity: 1;
+    background-position: 30px 50%; }
+  .slide-up.top:hover {
+    background-position: -72px 50%; }
   @media screen and (max-width: 800px) {
     .slide-up {
       width: 0; } }
